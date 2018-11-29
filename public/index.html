@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Personal Manager</title>
+	<link rel="stylesheet" type="text/css" href="style/style.css">
+</head>
+<body>
+	<div class="conteiner">
+		<div class="header">
+			<div class="tools">
+				<ul>
+					<li><input class='btn' type="button" value="Главное"></li>
+					<li><input class='btn' type="button" onclick='userNew()' value="Новый сотрудник"></li>
+				</ul>
+			</div>
+		</div>
+		<div id='content'>
+			<form id='newUser' method='post'>
+				<div class="name">
+						<label for='firstName'>Имя</label><Br>
+					<input id="firstName" class="inputNewUser" type="text" name="firstName"><Br>
+						<label for='lastName'>Фамилия</label><Br>
+					<input id="lastName" class="inputNewUser" type="text" name="lastName"><Br>
+						<label for='familyName'>Очество</label><Br>
+					<input id="familyName" class="inputNewUser" type="text" name="familyName"><Br>
+						<label for='age'>Год рождения</label><Br>
+					<input id="age" class="inputNewUser" type="number" name="age"><Br>
+				</div>
+				<div class="profession">
+						<label for="profession">Профессия</label><Br>
+					<input id="profession" class="inputNewUser" type="text" name="profession"><Br>
+					<p>
+						<select id="education" required name="education">
+							<option dizabled>Выберите учереждения</option>
+							<option value="school" >Школа</option>
+							<option value="college" >Коледж</option>
+							<option value="technical college" >Техникум</option>
+							<option value="instetut" >Инстетут</option>
+						</select>
+					</p>
+					<div class="institution ">
+							<label for="institutionName">Название учерждения</label>
+						<input id="institutionName" type="text" name="institutionName">
+					</div>
+				</div>
+				<div class="positionPersonal">
+						<label for="position">Должность</label><Br>
+					<input id="position" class="inputNewUser" type="text" name="position"><Br>
+						<label for="wage">Заработная плата</label><Br>
+					<input id="wage" class="inputNewUser" type="number" name="wage"><Br>
+					<P>
+						<select id="subdivision" required name="subdivision">
+							<option dizabled>Выберите направления</option>
+							<option value="frontend">Front end</option>
+							<option value="backend">Back end</option>
+						</select>
+					</P>
+					<p>
+						<select id="lavel" required name="lavel">
+							<option dizabled>Выберите уровень</option>
+							<option value="Junior">Junior</option>
+							<option value="Middle">Middle</option>
+							<option value="Senior">Senior</option>
+						</select>
+					</p>
+				</div>
+				<div class="scils">
+						<label for="clil">Новый навык</label>
+					<input id="scil"  type="text" value="">
+					<input class="btn" type="button" onclick="newScils()" value="Добавить навык">
+					<ul id='listScils'>
+						
+					</ul>
+				</div>
+				<div class="programmingLanguages">
+						<label for="newLanguages">Новый язык</label>
+					<input id="newLanguages" type="text">
+					<input class="btn" type="button" onclick="Languages()" value="Добавить язык">
+					<ul id="listLangulares">
+						
+					</ul>
+				</div>
+				<input id="newPersonal" class="btn" type="button" onclick="personalNew()" value="Добавить сотрудника">
+			</form>
+		</div>
+		<div class="footer">footer</div>
+	</div>
+	<script type="text/javascript" src='JavaScript/main.js' def></script>
+</body>
+</html>
