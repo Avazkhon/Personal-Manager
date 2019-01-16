@@ -46,7 +46,7 @@ li, button {
 
 #newUser {
 	margin: 5px auto;
-	width: 630px;
+	width: 1320px;
 	height: 410px;
 	border: 1px solid;
 	border-radius: 20px;
@@ -57,7 +57,7 @@ li, button {
 	float: left;
 	margin: 5px;
 	width: 200px;
-	height: 180px;
+	height: 370px;
 }
 
 
@@ -100,9 +100,8 @@ li, button {
 
 
 #newPersonal {
-	width: 620px;
+	width: 1320px;
 	height: 20px;
-	margin-left: 5px;
 }
 
 .footer {

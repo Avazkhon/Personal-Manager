@@ -1,6 +1,8 @@
 const express = require ('express');
 const bodyParser = require('body-parser');
 
+const searchName = require ('./js/searchName')
+
 const app = express();
 
 // app.use(bodyParser.json());
@@ -9,10 +11,13 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 let port = 2019;
 
-const personal = []
+const personal = [
+	{id: 0, passUmber: 123},
+	{id: 1, passUmber: 321 }
+]
 
 app.use(express.static('public'));
-	// Гоавная страница
+	// Главная страница
 app.get('/', (req, res) => {
 	res.sendFile(__dirname + '/public/main.html');
 });
@@ -23,21 +28,20 @@ app.get('/index.html', (req, res) => {
 
 	// Список сотрудников
 app.get('/personalLIst.html', (req, res) => {
-	res.sendFile(__dirname + '/public/personalLIst.html');
+	// res.sendFile(__dirname + '/public/personalLIst.html');
 	res.send(personal);
 })
 
 	// Новый сотрудник
-app.post('/form.html', function(req, res) {
-	let user = {
-		id: Math.floor(Math.random() * (9999, 9999999)) + 1,
-		user: req.body
-	}
-	res.sendFile(__dirname + '/public/personalLIst.html');
-	personal.push(user);
-	console.log(personal);
+app.post('/form.html',(req, res) => {
+	searchName(req, res, personal)
+	// res.redirect('/personal');
 
 });
+
+app.get('/personal', (req, res)=> {
+	res.send(personal)
+})
 
 app.listen(port, () => {
 	console.log(`app starting. localhost:${port}`);
