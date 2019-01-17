@@ -12,8 +12,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 let port = 2019;
 
 const personal = [
-	{id: 0, passUmber: 123},
-	{id: 1, passUmber: 321 }
+	{id: 0, user: {passUmber: 123}},
+	{id: 1, user: {passUmber: 321}}
 ]
 
 app.use(express.static('public'));
@@ -29,7 +29,7 @@ app.get('/index.html', (req, res) => {
 	// Список сотрудников
 app.get('/personalLIst.html', (req, res) => {
 	// res.sendFile(__dirname + '/public/personalLIst.html');
-	res.send(personal);
+	res.send(JSON.stringify(personal));
 })
 
 	// Новый сотрудник
@@ -38,9 +38,9 @@ app.post('/form.html',(req, res) => {
 	// res.redirect('/personal');
 
 });
-
+// Список сотрудников
 app.get('/personal', (req, res)=> {
-	res.send(personal)
+	res.send(JSON.stringify(personal));
 })
 
 app.listen(port, () => {
