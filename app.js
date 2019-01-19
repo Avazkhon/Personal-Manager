@@ -29,7 +29,7 @@ app.get('/index.html', (req, res) => {
 	// Список сотрудников
 app.get('/personalLIst.html', (req, res) => {
 	// res.sendFile(__dirname + '/public/personalLIst.html');
-	res.send(JSON.stringify(personal));
+	res.send(personal);
 })
 
 	// Новый сотрудник
@@ -40,7 +40,7 @@ app.post('/form.html',(req, res) => {
 });
 // Список сотрудников
 app.get('/personal', (req, res)=> {
-	res.send(JSON.stringify(personal));
+	res.send(personal);
 })
 
 app.listen(port, () => {
