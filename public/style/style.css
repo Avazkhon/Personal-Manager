@@ -106,6 +106,17 @@ li, button {
 	height: 20px;
 }
 
+.user{
+	margin: 15px;
+}
+
+.person {
+	display: grid;
+	border: 1px solid;
+	grid-template-columns: 150px 150px 150px;
+	grid-template-rows: 25px;
+}
+
 .footer {
 	background-color: DarkGrey;
 	width: 100%;
