@@ -98,25 +98,6 @@ li, button {
 	height: 20px;
 }
 
-.user{
-	margin: 15px;
-}
-#headerPerson{
-	margin-bottom: 5px;
-	background-color: Gainsboro;
-}
-
-.person {
-	display: grid;
-	border: 1px solid;
-	grid-template-columns: repeat(5, 1fr);
-	grid-template-rows: 25px;
-}
-.personValue{
-	border-right: 1px solid;
-	text-align: center;
-}
-
 .footer {
 	background-color: DarkGrey;
 	width: 100%;
