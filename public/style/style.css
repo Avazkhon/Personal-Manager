@@ -67,13 +67,6 @@ li, button {
 	margin-bottom: 10px; 
 }
 
-/*profession*/
-
-/*positionPersonal*/
-
-/*scils*/
-
-/*programmingLanguages*/
 
 #listLangulares {
 	overflow: auto;
@@ -108,12 +101,20 @@ li, button {
 .user{
 	margin: 15px;
 }
+#headerPerson{
+	margin-bottom: 5px;
+	background-color: Gainsboro;
+}
 
 .person {
 	display: grid;
 	border: 1px solid;
-	grid-template-columns: 150px 150px 150px;
+	grid-template-columns: repeat(5, 1fr);
 	grid-template-rows: 25px;
+}
+.personValue{
+	border-right: 1px solid;
+	text-align: center;
 }
 
 .footer {

@@ -18,11 +18,22 @@ $(document).ready(()=> {
 })
 
 function person(user, inner){
+  inner +=`<div class='person' id="headerPerson" >
+              <div class="personValue" >ID</div>
+              <div class="personValue" >Имя</div>
+              <div class="personValue" >Очество</div>
+              <div class="personValue" >Должность</div>
+              <div class="personValue" >Уровень</div>
+          </div>` ;
   for(let i=0; i<user.length; i++){
+    console.log(user)
       inner += `<div class='person' >
-      <div class="personValue" >id: ${user[i].id}</div>
+      <div class="personValue" >${user[i].id}</div>
       <div class="personValue" >${user[i].user.firstName}</div>
       <div class="personValue" >${user[i].user.lastName}</div>
+      <div class="personValue" >${user[i].user.position}</div>
+      <div class="personValue" >${user[i].user.lavel}</div>
+
     </div>`;
  }
  return inner
