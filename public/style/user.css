@@ -1,11 +1,11 @@
 
-.user{
+#user{
 	margin: 15px;
+
 }
 
 .person :nth-child(even)  { background-color: #D3D3D3;}
 .person :nth-child(odd) { background-color: #C0C0C0;}
-/*#personValue :nth-child(3) { background-color: #BDB76B;}*/
 
 .headerPerson{
 	display: grid;
@@ -33,4 +33,43 @@
 .personValue{
 	border-right: 1px solid;
 	text-align: center;
+}
+
+		/*card*/
+
+
+
+.getCardIMG{
+	float: left;
+	width: 200px;
+	height: 300px;
+	border: 1px solid;
+}
+.getCardIMG img {
+	width: 200px;
+	overflow: hidden;
+}
+
+.personalInformation {
+	float: left;
+	width: 400px;
+	min-width: 200px;
+	height: 300px;
+	border: 1px solid;
+}
+
+.workInformation {
+	float: left;
+	width: 400px;
+	min-width: 200px;
+	height: 300px;
+	border: 1px solid;
+}
+
+.education {
+	float: left;
+	width: 400px;
+	min-width: 200px;
+	height: 300px;
+	border: 1px solid;
 }
