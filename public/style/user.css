@@ -2,9 +2,26 @@
 .user{
 	margin: 15px;
 }
-#headerPerson{
+
+.person :nth-child(even)  { background-color: #D3D3D3;}
+.person :nth-child(odd) { background-color: #C0C0C0;}
+/*#personValue :nth-child(3) { background-color: #BDB76B;}*/
+
+.headerPerson{
+	display: grid;
+	border: 1px solid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-template-rows: 30px;
 	margin-bottom: 5px;
-	background-color: Gainsboro;
+	background-color: #A9A9A9;
+}
+
+.headerValue {
+	border-right: 1px solid;
+	font-size: 20px;
+	text-align: center;
+
+
 }
 
 .person {

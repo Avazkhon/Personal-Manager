@@ -18,12 +18,12 @@ $(document).ready(()=> {
 })
 
 function person(user, inner){
-  inner +=`<div class="person" id="headerPerson" >
-              <div class="personValue" >ID</div>
-              <div class="personValue" >Имя</div>
-              <div class="personValue" >Очество</div>
-              <div class="personValue" >Должность</div>
-              <div class="personValue" >Уровень</div>
+  inner +=`<div class="headerPerson" >
+              <div class="headerValue" >ID</div>
+              <div class="headerValue" >Имя</div>
+              <div class="headerValue" >Очество</div>
+              <div class="headerValue" >Должность</div>
+              <div class="headerValue" >Уровень</div>
           </div>` ;
   for(let i=0; i<user.length; i++){
       inner += `<div class="person" onclick="getCard(${i})" >
@@ -54,13 +54,7 @@ function getCard(i){
       <div class="getCard" >${personals[i].user.profession}</div>
       <div class="getCard" >${personals[i].user.subdivision}</div>
       <div class="getCard" >${personals[i].user.wage}</div>
-     ${personals[i].id}
     </div>`)
 
 }
 
-// function personBlank () {
-//   return(
-//       `<div>крта сотрудника</div>`
-//     )
-// }

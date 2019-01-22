@@ -12,8 +12,24 @@ app.use(bodyParser.urlencoded({extended: true}));
 let port = 2019;
 
 const personal = [
-	{id: 0, user: {passUmber: 123}},
-	{id: 1, user: {passUmber: 321}}
+	{
+		id: 0,
+		user: {
+			age: "1992",
+			education: "college",
+			familyName: "Усупханович",
+			firstName: "Avazkhon",
+			institutionName: "СибУПК",
+			lastName: "Kamalkhanova",
+			lavel: "Junior",
+			passUmber: "999",
+			position: "JavaScript-developer",
+			profession: "Юрист",
+			subdivision: "frontend",
+			wage: "80000"
+		}
+	},
+	{id: 1, user: {passUmber: 123}}
 ]
 
 app.use(express.static('public'));
