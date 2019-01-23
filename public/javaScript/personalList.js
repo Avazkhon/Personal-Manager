@@ -53,9 +53,10 @@ function getCard(i){
     return (
         `<div class="personalInformation" >
         <h3>Личная информация</h3>
-        <div class="getCardFirstName" >${personals[i].user.firstName}</div>
-        <div class="getCardLastName" >${personals[i].user.lastName}</div>
-        <div class="getCardLastName" >${personals[i].user.familyName}</div>
+        <div class="getCard" ><h5>Фамилия</h5><div>${personals[i].user.lastName}</div></div>
+        <div class="getCard" ><h5>Имя</h5><div>${personals[i].user.firstName}</div></div>
+        <div class="getCard" ><h5>Очество</h5><div>${personals[i].user.familyName}</div></div>
+        <div class="getCard" ><h5>Номер паспорта</h5><div>${personals[i].user.passUmber}</div></div>
       </div>`
       )
   }
@@ -64,11 +65,11 @@ function getCard(i){
     return(
         `<div class="workInformation">
         <h3>Служебная информация</h3>
-        <div class="getCardID">${personals[i].id}</div>
-        <div class="getCardPosition" >${personals[i].user.position}</div>
-        <div class="getCardlavel" >${personals[i].user.lavel}</div>
-        <div class="getCardSubdivision" >${personals[i].user.subdivision}</div>
-        <div class="getCardWage">${personals[i].user.wage}</div>
+        <div class="getCard" ><h5>ID</h5><div>${personals[i].id}</div></div>
+        <div class="getCard" ><h5>Должность</h5><div>${personals[i].user.position}</div></div>
+        <div class="getCard" ><h5>Уровень</h5><div>${personals[i].user.lavel}</div></div>
+        <div class="getCard" ><h5>Напрвления</h5><div>${personals[i].user.subdivision}</div></div>
+        <div class="getCard" ><h5>Зароботная плата</h5><div>${personals[i].user.wage}</div></div>
       </div>`
       )
   }
@@ -77,9 +78,8 @@ function getCard(i){
     return (
      ` <div class="education" >
         <h3>образование</h3>
-        <div class="getCardInstitutionName" >${personals[i].user.institutionName}</div>
-        <div class="getCardPassUmber" >${personals[i].user.passUmber}</div>
-        <div class="getCardProfession" >${personals[i].user.profession}</div>
+        <div class="getCard" ><h5>Название учебного учереждения</h5><div>${personals[i].user.institutionName}</div></div>
+        <div class="getCard" ><h5>Профессия</h5><div>${personals[i].user.profession}</div></div>
       </div>`
     )
   }

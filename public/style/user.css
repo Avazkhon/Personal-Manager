@@ -1,11 +1,20 @@
 
+h3{
+	text-align: center;
+}
+
+h5 {
+	margin: 2px 0 2px 0;
+}
+
+
 #user{
 	margin: 15px;
 
 }
 
 .person :nth-child(even)  { background-color: #D3D3D3;}
-.person :nth-child(odd) { background-color: #C0C0C0;}
+.person :nth-child(odd) { background-color: #B4B3B1;}
 
 .headerPerson{
 	display: grid;
@@ -50,26 +59,32 @@
 	overflow: hidden;
 }
 
-.personalInformation {
+.personalInformation,  .workInformation, .education{
 	float: left;
+	border: 1px solid;
 	width: 400px;
 	min-width: 200px;
 	height: 300px;
-	border: 1px solid;
 }
 
-.workInformation {
-	float: left;
-	width: 400px;
-	min-width: 200px;
-	height: 300px;
-	border: 1px solid;
+.personalInformation{
+
 }
 
-.education {
-	float: left;
-	width: 400px;
-	min-width: 200px;
-	height: 300px;
+.workInformation{
+
+}
+.education{
+
+}
+
+.getCard :nth-child(even)  { background-color: #D3D3D3;}
+.getCard :nth-child(odd) { background-color: #B4B3B1;}
+
+.getCard {
+	display: grid;
+	grid-template-columns: repeat(1fr);
+	grid-template-rows: repeat(1fr);;
 	border: 1px solid;
+	/*background-color: #D3D3D3;*/
 }
