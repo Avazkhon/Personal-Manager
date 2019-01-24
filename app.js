@@ -5,8 +5,8 @@ const searchName = require ('./js/searchName')
 
 const app = express();
 
-// app.use(bodyParser.json());
-// app.use(bodyParser.json({extended: true}))
+app.use(bodyParser.json());
+app.use(bodyParser.json({extended: true}))
 app.use(bodyParser.urlencoded({extended: true}));
 
 let port = 2019;
@@ -22,7 +22,7 @@ const personal = [
 			institutionName: "СибУПК",
 			lastName: "Kamalkhanova",
 			lavel: "Junior",
-			passUmber: "999",
+			passNumber: "999",
 			position: "JavaScript-developer",
 			profession: "Юрист",
 			subdivision: "frontend",

@@ -44,9 +44,11 @@ function getCard(i){
   $("#user").html(
     `<div class="card">
       <div class="getCardIMG" ><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFaORdmj-6CrbpTkWsgeTr67mI_kBy6bCF_l9WPTDL3yIC_D06" alt="фото"  /></div>
-      ${personalInformation() }
-      ${workInformation() }
-      ${education() }
+      <div class="information">
+        ${personalInformation() }
+        ${workInformation() }
+        ${education() }
+      </div>
     </div>`)
 
   function personalInformation () {
@@ -56,7 +58,7 @@ function getCard(i){
         <div class="getCard" ><h5>Фамилия</h5><div>${personals[i].user.lastName}</div></div>
         <div class="getCard" ><h5>Имя</h5><div>${personals[i].user.firstName}</div></div>
         <div class="getCard" ><h5>Очество</h5><div>${personals[i].user.familyName}</div></div>
-        <div class="getCard" ><h5>Номер паспорта</h5><div>${personals[i].user.passUmber}</div></div>
+        <div class="getCard" ><h5>Номер паспорта</h5><div>${personals[i].user.passNumber}</div></div>
       </div>`
       )
   }
@@ -80,6 +82,7 @@ function getCard(i){
         <h3>образование</h3>
         <div class="getCard" ><h5>Название учебного учереждения</h5><div>${personals[i].user.institutionName}</div></div>
         <div class="getCard" ><h5>Профессия</h5><div>${personals[i].user.profession}</div></div>
+        <div class="getCard" ><h5>Вид учереждения</h5><div>${personals[i].user.education}</div></div>
       </div>`
     )
   }

@@ -5,10 +5,27 @@ module.exports = function searchName (req, res, personal) {
 		user: req.body
 	};
 
-	let passUmber = Number(user.user.passUmber);
+	let passNumber = Number(user.user.passNumber);
 
-	function newUser(personal) {
-		personal.push(user)
-		res.redirect('/personalLIst.html')
-	}newUser(personal);
+	function newUser(personal, passNumber) {
+		let num = personal.map((item)=>{
+			return Number(item.user.passNumber)
+		})
+
+		let number = num.some(number=>{
+			if(number===passNumber){
+				return true
+			}
+		})
+
+		if(!number) {
+			personal.push(user)
+			res.redirect('/personalLIst.html')
+		}
+
+		else{
+			res.sendStatus(404)
+		}
+		console.log(number)
+	}newUser(personal, passNumber);
 }

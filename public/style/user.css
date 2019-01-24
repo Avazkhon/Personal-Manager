@@ -78,6 +78,10 @@ h5 {
 
 }
 
+.information{
+	overflow: hidden;
+}
+
 .getCard :nth-child(even)  { background-color: #D3D3D3;}
 .getCard :nth-child(odd) { background-color: #B4B3B1;}
 
