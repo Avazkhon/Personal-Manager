@@ -26,6 +26,5 @@ module.exports = function searchName (req, res, personal) {
 		else{
 			res.sendStatus(404)
 		}
-		console.log(number)
 	}newUser(personal, passNumber);
 }

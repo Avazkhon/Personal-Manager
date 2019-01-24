@@ -42,6 +42,7 @@ h5 {
 .personValue{
 	border-right: 1px solid;
 	text-align: center;
+	cursor: pointer;
 }
 
 		/*card*/
@@ -85,10 +86,10 @@ h5 {
 .getCard :nth-child(even)  { background-color: #D3D3D3;}
 .getCard :nth-child(odd) { background-color: #B4B3B1;}
 
-.getCard {
+.getCard div{
 	display: grid;
-	grid-template-columns: repeat(1fr);
-	grid-template-rows: repeat(1fr);;
-	border: 1px solid;
-	/*background-color: #D3D3D3;*/
+/*	grid-template-columns: repeat(1fr);
+	grid-template-rows: repeat(1fr);
+*/	border: 1px solid;
+	cursor: pointer;
 }
