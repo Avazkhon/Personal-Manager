@@ -98,12 +98,21 @@ function userSearch() {
         function result (personal) {
           for(let i=0; i<=personal.length - 1; i++) {
              for(let j in personal[i].user) {
+              let arr= [];
+                // if(personal[i].user[j] !== value){
+                //   inner = `<div><h3>Упс.. Мы не нашли искомое!<h3></duv>`
+                // }
                 if(personal[i].user[j] == value){
+                  arr.push = personal[i].user[j];
                   search.push(personal[i])
+                  console.log(search.length)
+                  inner = "";
+                }
+                if(search.length == 0) {
+                  inner = `<div><h3>Упс.. Мы не нашли искомое!</h3></div>`;
                 }
              }
           }
-          console.log(search)
           inner = person(search, inner)
         }result(personal)
 
