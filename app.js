@@ -29,7 +29,7 @@ const personal = [
 			wage: "80000"
 		}
 	},
-	{id: 1, user: {passUmber: 123}}
+	{id: 1, user: {passNumber: 123}}
 ]
 
 app.use(express.static('public'));

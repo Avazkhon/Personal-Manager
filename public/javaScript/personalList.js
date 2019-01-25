@@ -32,7 +32,6 @@ function person(user, inner){
       <div class="personValue" >${user[i].user.lastName}</div>
       <div class="personValue" >${user[i].user.position}</div>
       <div class="personValue" >${user[i].user.lavel}</div>
-
     </div>`;
  }
  return inner
@@ -88,3 +87,28 @@ function getCard(i){
   }
 }
 
+function userSearch() {
+  let value = $("userSearchText").value
+  let search= [];
+  $.get(
+      "http://localhost:2019/personal",
+      (personal)=> {
+        let inner = "";
+        let user = personal;
+        personals =personal;
+
+        inner = person(user, inner)
+
+        function result (user) {
+          for(let i in user) {
+            for(let j in user[i].user){
+             search.push(user[i].user[j])
+            }
+          }
+          console.log(search)
+        }result(user)
+
+        $("#user").html(inner);
+      }
+    )
+}

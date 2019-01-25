@@ -40,6 +40,7 @@ h5 {
 	grid-template-rows: 25px;
 }
 .personValue{
+	overflow: hidden;
 	border-right: 1px solid;
 	text-align: center;
 	cursor: pointer;

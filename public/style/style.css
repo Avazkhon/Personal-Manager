@@ -16,13 +16,17 @@ li, button {
 }
 
 .tools{
-	margin-top: 20px;
-	margin-left: 20px;
+	margin:20px;
 }
 .tools ul li {
 	float: left;
 	padding: 5px;
 	margin-left: 5px;
+}
+
+.userSearch{
+	float: right;
+	margin-left: 15px: 
 }
 
 .btn {
