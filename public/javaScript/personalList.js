@@ -88,25 +88,24 @@ function getCard(i){
 }
 
 function userSearch() {
-  let value = $("userSearchText").value
+  let value = document.getElementById("userSearchText").value
   let search= [];
   $.get(
       "http://localhost:2019/personal",
       (personal)=> {
         let inner = "";
-        let user = personal;
-        personals =personal;
-
-        inner = person(user, inner)
-
-        function result (user) {
-          for(let i in user) {
-            for(let j in user[i].user){
-             search.push(user[i].user[j])
-            }
+        personals = personal;
+        function result (personal) {
+          for(let i=0; i<=personal.length - 1; i++) {
+             for(let j in personal[i].user) {
+                if(personal[i].user[j] == value){
+                  search.push(personal[i])
+                }
+             }
           }
           console.log(search)
-        }result(user)
+          inner = person(search, inner)
+        }result(personal)
 
         $("#user").html(inner);
       }
