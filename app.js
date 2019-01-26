@@ -1,7 +1,8 @@
 const express = require ('express');
 const bodyParser = require('body-parser');
 
-const searchName = require ('./js/searchName')
+const searchName = require ('./js/searchName');
+const deleteUser = require ('./js/deleteUser')
 
 const app = express();
 
@@ -10,6 +11,8 @@ app.use(bodyParser.json({extended: true}))
 app.use(bodyParser.urlencoded({extended: true}));
 
 let port = 2019;
+
+const archive = [];
 
 const personal = [
 	{
@@ -20,7 +23,7 @@ const personal = [
 			familyName: "Усупханович",
 			firstName: "Avazkhon",
 			institutionName: "СибУПК",
-			lastName: "Kamalkhanova",
+			lastName: "Kamalkhanov",
 			lavel: "Junior",
 			passNumber: "999",
 			position: "JavaScript-developer",
@@ -44,7 +47,18 @@ app.get('/index.html', (req, res) => {
 
 	// Список сотрудников
 app.get('/personalLIst.html', (req, res) => {
-	// res.sendFile(__dirname + '/public/personalLIst.html');
+	res.sendFile(__dirname + '/public/personalLIst.html');
+	// res.send(personal);
+})
+
+	// Список сотрудников
+app.get('/personalLIst.html', (req, res) => {
+	res.sendFile(__dirname + '/public/personalLIst.html');
+	// res.send(personal);
+})
+
+// Список сотрудников
+app.get('/personal', (req, res)=> {
 	res.send(personal);
 })
 
@@ -54,9 +68,9 @@ app.post('/form.html',(req, res) => {
 	// res.redirect('/personal');
 
 });
-// Список сотрудников
-app.get('/personal', (req, res)=> {
-	res.send(personal);
+
+app.post('/deliteUser', (req, res)=> {
+	deleteUser(req, res, archive, personal)
 })
 
 app.listen(port, () => {

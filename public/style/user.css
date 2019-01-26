@@ -61,6 +61,10 @@ h5 {
 	overflow: hidden;
 }
 
+#deleteUser{
+	background-color: red;
+}
+
 .personalInformation,  .workInformation, .education{
 	float: left;
 	border: 1px solid;

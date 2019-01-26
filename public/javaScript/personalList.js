@@ -1,5 +1,5 @@
 let personals;
-
+// вывод перонала
 $(document).ready(()=> {
   $("#listOfEmployees").on("click", (personal) => {
     $.get(
@@ -7,7 +7,7 @@ $(document).ready(()=> {
         (personal)=> {
           let inner = "";
           let user = personal;
-          personals =personal;
+          personals = personal;
 
           inner = person(user, inner)
 
@@ -17,6 +17,7 @@ $(document).ready(()=> {
   })
 })
 
+// шаблон для вывода персонала (лист)
 function person(user, inner){
   inner +=`<div class="headerPerson" >
               <div class="headerValue" >ID</div>
@@ -37,12 +38,15 @@ function person(user, inner){
  return inner
 }
 
-
+// шаблон для вывода определеного сотрудника
 function getCard(i){
   console.log(i, personals[i] )
   $("#user").html(
     `<div class="card">
-      <div class="getCardIMG" ><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFaORdmj-6CrbpTkWsgeTr67mI_kBy6bCF_l9WPTDL3yIC_D06" alt="фото"  /></div>
+      <div class="getCardIMG" >
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFaORdmj-6CrbpTkWsgeTr67mI_kBy6bCF_l9WPTDL3yIC_D06" alt="фото"  />
+        <input type="button" id="deleteUser" value="Удалить" onclick="deleteUser(${i})">
+        </div>
       <div class="information">
         ${personalInformation() }
         ${workInformation() }
@@ -86,7 +90,7 @@ function getCard(i){
     )
   }
 }
-
+/// Поисковие
 function userSearch() {
   let value = document.getElementById("userSearchText").value
   let search= [];
@@ -99,9 +103,6 @@ function userSearch() {
           for(let i=0; i<=personal.length - 1; i++) {
              for(let j in personal[i].user) {
               let arr= [];
-                // if(personal[i].user[j] !== value){
-                //   inner = `<div><h3>Упс.. Мы не нашли искомое!<h3></duv>`
-                // }
                 if(personal[i].user[j] == value){
                   arr.push = personal[i].user[j];
                   search.push(personal[i])
@@ -119,4 +120,22 @@ function userSearch() {
         $("#user").html(inner);
       }
     )
+}
+
+// удаления сотрудника
+function deleteUser (user) {
+  let xhr = new XMLHttpRequest();
+
+  var body = 'index=' + encodeURIComponent(user);
+
+  xhr.open("POST", 'http://localhost:2019/deliteUser', true);
+  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+  xhr.onreadystatechange = ()=> {
+        if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+            console.log(JSON.parse(xhr.responseText));
+        };
+    };
+
+  xhr.send(body);
 }
