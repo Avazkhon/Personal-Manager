@@ -5,20 +5,17 @@ $(document).ready(()=> {
     $.get(
         "http://localhost:2019/personal",
         (personal)=> {
-          let inner = "";
-          let user = personal;
           personals = personal;
 
-          inner = person(user, inner)
-
-          $("#user").html(inner);
+         person(personals);
         }
       )
   })
 })
 
 // шаблон для вывода персонала (лист)
-function person(user, inner){
+function person(user){
+  let inner = "";
   inner +=`<div class="headerPerson" >
               <div class="headerValue" >ID</div>
               <div class="headerValue" >Имя</div>
@@ -35,7 +32,7 @@ function person(user, inner){
       <div class="personValue" >${user[i].user.lavel}</div>
     </div>`;
  }
- return inner
+  $("#user").html(inner);
 }
 
 // шаблон для вывода определеного сотрудника
@@ -116,8 +113,6 @@ function userSearch() {
           }
           inner = person(search, inner)
         }result(personal)
-
-        $("#user").html(inner);
       }
     )
 }
@@ -134,6 +129,7 @@ function deleteUser (user) {
   xhr.onreadystatechange = ()=> {
         if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
             console.log(JSON.parse(xhr.responseText));
+            person(JSON.parse(xhr.responseText))
         };
     };
 
