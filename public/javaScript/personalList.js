@@ -113,10 +113,10 @@ function userSearch() {
           for(let i=0; i<=personal.length - 1; i++) {
              for(let j in personal[i].user) {
               let arr= [];
-                if(personal[i].user[j] == value){
+                if(personal[i].user[j] == value && value !== ""){
                   arr.push = personal[i].user[j];
                   search.push(personal[i])
-                  console.log(search.length)
+                  console.log(search.length, personal[i].user[j])
                 }
              }
           }
