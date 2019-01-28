@@ -4,6 +4,9 @@ const bodyParser = require('body-parser');
 const searchName = require ('./js/searchName');
 const deleteUser = require ('./js/deleteUser')
 
+let personal = require('./db/personals');
+let archive = require('./db/archive');
+
 const app = express();
 
 app.use(bodyParser.json());
@@ -11,29 +14,6 @@ app.use(bodyParser.json({extended: true}))
 app.use(bodyParser.urlencoded({extended: true}));
 
 let port = 2019;
-
-const archive = [];
-
-const personal = [
-	{
-		id: 0,
-		user: {
-			age: "1992",
-			education: "college",
-			familyName: "Усупханович",
-			firstName: "Avazkhon",
-			institutionName: "СибУПК",
-			lastName: "Kamalkhanov",
-			lavel: "Junior",
-			passNumber: "999",
-			position: "JavaScript-developer",
-			profession: "Юрист",
-			subdivision: "frontend",
-			wage: "80000"
-		}
-	},
-	{id: 1, user: {passNumber: 123}}
-]
 
 app.use(express.static('public'));
 	// Главная страница
