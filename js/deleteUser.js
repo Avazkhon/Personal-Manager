@@ -1,10 +1,22 @@
 module.exports = function deliteUser (req, res, archivem, personal) {
-	let index = Number(req.body.index);
+	let id = Number(req.body.id);
 	function deletePerson () {
-		let deleteUser = personal[index];
-		archivem.push(deleteUser) // добавить в архив
-		personal.splice(index, 1) // удалить из массива персонала
-		res.send(personal) 
-		console.log(deleteUser, "перемещен в archivem")
+		let userId;
+		for(let i=0; i<personal.length; i++){
+			if(personal[i].id === id) {
+				userId = personal[i].id;
+				archivem.push(userId) // добавить в архив\
+
+				console.log(personal[i], "перемещен в archivem")
+
+				personal.splice(i, 1) // удалить из массива персонала
+				res.send(personal) 
+			}
+		}
+
+		// let deleteUser = personal[index];
+		// personal.splice(index, 1) // удалить из массива персонала
+		// res.send(personal) 
+		// console.log(deleteUser, "перемещен в archivem")
 	}deletePerson()
 }
