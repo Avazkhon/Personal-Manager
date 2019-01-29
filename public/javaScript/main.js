@@ -1,44 +1,45 @@
-// массив персонала
-const personal = []
-//объект для добавления методов сотрудника
-let obj = {
-	scils: [],
-	languages: []
-	};
-
-// показывает панаель для для заполнения данных о сотруднике
-function userNew() {
-	let newUser = document.getElementById("newUser");
-		// если еще не вывиден на экран
-	if (newUser.style.display == "none") {
-		newUser.style.display = "block";
-		obj = {
-			scils: [],
-			languages: []
-			};
+// получить от сервера date по умолчанию при загрузки
+document.addEventListener('DOMContentLoaded', ()=>{
+	const url = "http://localhost:2019/main";
+	const xhr = new XMLHttpRequest();
+	xhr.open('GET', url, )
+	xhr.onreadystatechange =()=>{
+		if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
+			console.log(xhr.responseText)
+			main()
+		}
 	}
-}
+	xhr.send()
+})
 
-// добавить новые умения
-function newScils () {
-	let scil = document.getElementById('scil').value;
-	// если стока не пуста
-	if(scil !== '') {
-		// то отобразить 
-		document.getElementById('listScils').innerHTML += `<li class='liscil' name='${scil}'>${scil}</li>`;
-		// удалить содержимое
-		document.getElementById('scil').value = '';
-		obj.scils.push(scil);
-	}
-}
+//вывод report
+function main () {
+	let main = document.getElementById("main");
 
-// добавить новые языки
-function Languages () {
-	let newLanguages = document.getElementById('newLanguages').value;
+	main.innerHTML = `<div class="report" >
+							${canvas()}
+						</div>`;
 
-	if(newLanguages !== '') {
-		document.getElementById('listLangulares').innerHTML += `<li class='listLangulares' name='${newLanguages}' >${newLanguages}</li>`;
-		document.getElementById('newLanguages').value = '';
-		obj.languages.push(newLanguages)
+	function canvas () {
+		const url = "http://localhost:2019/personal";
+		const xhr = new XMLHttpRequest();
+		let wage = 0;
+		xhr.open('GET', url, )
+		xhr.onreadystatechange =()=>{
+			if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
+				let personal = JSON.parse(xhr.response);
+				for(let i=0; i<personal.length; i++) {
+					wage += personal[i].user.wage
+					console.log(wage)
+				}
+			}
+		}
+		xhr.send()
+		return (
+			`<div class="wage" >
+				<h3>${wage}</h3>
+				<canvas id="wageMid" heigth="400" width="800">
+			</div>`
+		)
 	}
 }

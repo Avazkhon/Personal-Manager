@@ -13,7 +13,7 @@ module.exports = [
 		"position": "JavaScript-developer",
 		"profession": "Юрист",
 		"subdivision": "frontend",
-		"wage": "80000"
+		"wage": 80000
 		}
 	},
 	{	
@@ -30,7 +30,7 @@ module.exports = [
 		"position": "",
 		"profession": "",
 		"subdivision": "",
-		"wage": null 
+		"wage": 0 
 		}
 	},
 	{	
@@ -47,7 +47,7 @@ module.exports = [
 		"position": "Boss",
 		"profession": "",
 		"subdivision": "",
-		"wage": "error" 
+		"wage": 70000
 		}
 	},
 	{	
@@ -64,7 +64,7 @@ module.exports = [
 		"position": "Художник",
 		"profession": "",
 		"subdivision": "Миссионер",
-		"wage": 0 
+		"wage": 60000
 		}
 	},
 	{	
@@ -81,7 +81,7 @@ module.exports = [
 		"position": "Посол",
 		"profession": "",
 		"subdivision": "",
-		"wage": null 
+		"wage": 50000
 		}
 	},
 ];

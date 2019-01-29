@@ -1,0 +1,21 @@
+#main{
+	min-width: 400px;
+	min-height: 650px;
+	margin: 15px;
+	border: 1px solid;
+	/*overflow: hidden;*/
+}
+
+.report{
+	margin: 15px;
+	border: 1px solid;
+	min-height: 400px;
+	min-width: 400px;
+}
+
+.wage{
+	margin: 15px;
+	border: 1px solid;
+	height: 400px;
+	width: 800px;
+}

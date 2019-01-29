@@ -32,8 +32,8 @@ app.get('/personalLIst.html', (req, res) => {
 })
 
 	// Список сотрудников
-app.get('/personalLIst.html', (req, res) => {
-	res.sendFile(__dirname + '/public/personalLIst.html');
+app.get('/main', (req, res) => {
+	res.sendStatus(200)
 	// res.send(personal);
 })
 
