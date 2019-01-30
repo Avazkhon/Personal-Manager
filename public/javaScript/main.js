@@ -26,7 +26,7 @@ function main () {
 			if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
 				personal = JSON.parse(xhr.response);
 				for(let i=0; i<personal.length; i++) {
-					wage += personal[i].user.wage;
+					wage += JSON.parse(personal[i].user.wage);
 				}
 			}
 			main.innerHTML = `<div class="report" >
@@ -48,17 +48,74 @@ function getCanvas(personal) {
 	const ctx = canvas.getContext("2d");
 	let wage = 0;
 	let y = 0;
+	let x = 0;
+
+	let date = new Date();
+	// получть месяц
+	let month = date.getUTCMonth() +10 ;
 	// отрисовка графика
-	function line(){
+
 		// вычесть сумму зп
-		for(let i=0; i<personal.length; i++) {
-			wage += personal[i].user.wage;
-		}
-		// получить значения для графика
-		y = wage /personal.length /1000; // ЗП / кол- персонала / масштаб
-		document.getElementById('h3WageMid').innerHTML = `средняя ЗП: ${y * 1000}`; 
-		ctx.moveTo(0, 150);
-		ctx.lineTo(25, y), ctx.lineTo(50, y), ctx.lineTo(75, y), ctx.lineTo(100, y);
+	for(let i=0; i<personal.length; i++) {
+		wage += JSON.parse(personal[i].user.wage);
+	}
+	// получить значения для графика
+	y = Math.floor(wage /personal.length /1000); // ЗП / кол- персонала / масштаб
+	// Вывести среднюю. ЗП
+	document.getElementById('h3WageMid').innerHTML = `Средняя ЗП: ${y * 1000}`; 
+	ctx.moveTo(0, 150);
+	function line(x){
+		ctx.lineTo(x, y);
 		ctx.stroke()
-	}line()
+
+		console.log(month, x, y)
+	}
+	if(month >= 1) {
+		x = x + 50;
+		line(x)
+	}
+	if(month >= 2) {
+		x = x + 50;
+		line(x)
+	}
+	if(month >= 3) {
+		x = x + 50;
+		line(x)
+	}
+	if(month >= 4) {
+		x = x + 50;
+		line(x)
+	}
+	if(month >= 5) {
+		x = x + 50;
+		line(x)
+	}
+	if(month >= 6) {
+		x = x + 50;
+		line(x)
+	}
+	if(month >= 7) {
+		x = x + 50;
+		line(x)
+	}
+	if(month >= 8) {
+		x = x + 50;
+		line(x)
+	}
+	if(month >= 9) {
+		x = x + 50;
+		line(x)
+	}
+	if(month >= 10) {
+		x = x + 50;
+		line(x)
+	}
+	if(month >= 11) {
+		x = x + 50;
+		line(x)
+	}
+	if(month == 12) {
+		x = x + 50;
+		line(x)
+	}
 }
