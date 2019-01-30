@@ -1,3 +1,4 @@
+
 // получить от сервера date по умолчанию при загрузки
 document.addEventListener('DOMContentLoaded', ()=>{
 	const url = "http://localhost:2019/main";
@@ -15,31 +16,49 @@ document.addEventListener('DOMContentLoaded', ()=>{
 //вывод report
 function main () {
 	let main = document.getElementById("main");
-
-	main.innerHTML = `<div class="report" >
-							${canvas()}
-						</div>`;
-
-	function canvas () {
+	document.getElementById("wagaFunction").onclick = function canvas () {
 		const url = "http://localhost:2019/personal";
 		const xhr = new XMLHttpRequest();
 		let wage = 0;
-		xhr.open('GET', url, )
+		let personal = [];
+		xhr.open('GET', url, true)
 		xhr.onreadystatechange =()=>{
 			if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
-				let personal = JSON.parse(xhr.response);
+				personal = JSON.parse(xhr.response);
 				for(let i=0; i<personal.length; i++) {
-					wage += personal[i].user.wage
-					console.log(wage)
+					wage += personal[i].user.wage;
 				}
 			}
+			main.innerHTML = `<div class="report" >
+								<div class="wage" >
+									<h3>Сумма ЗП: ${wage}</h3>
+									<h3 id="h3WageMid" ></h3>
+									<h3>График:</h3>
+									<canvas id="wageMid" height="300" width="600">
+							 	</div>
+							</div>`;
+			getCanvas(personal)
 		}
 		xhr.send()
-		return (
-			`<div class="wage" >
-				<h3>${wage}</h3>
-				<canvas id="wageMid" heigth="400" width="800">
-			</div>`
-		)
 	}
+}
+
+function getCanvas(personal) {
+	const canvas = document.getElementById("wageMid");
+	const ctx = canvas.getContext("2d");
+	let wage = 0;
+	let y = 0;
+	// отрисовка графика
+	function line(){
+		// вычесть сумму зп
+		for(let i=0; i<personal.length; i++) {
+			wage += personal[i].user.wage;
+		}
+		// получить значения для графика
+		y = wage /personal.length /1000; // ЗП / кол- персонала / масштаб
+		document.getElementById('h3WageMid').innerHTML = `средняя ЗП: ${y * 1000}`; 
+		ctx.moveTo(0, 150);
+		ctx.lineTo(25, y), ctx.lineTo(50, y), ctx.lineTo(75, y), ctx.lineTo(100, y);
+		ctx.stroke()
+	}line()
 }
