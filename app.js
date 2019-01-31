@@ -1,9 +1,11 @@
 const express = require ('express');
 const bodyParser = require('body-parser');
-
+// мои модули
 const searchName = require ('./js/searchName');
 const deleteUser = require ('./js/deleteUser')
+const countPersonals = require('./js/main')
 
+//Типа BD
 let personal = require('./db/personals');
 let archive = require('./db/archive');
 
@@ -40,6 +42,11 @@ app.get('/main', (req, res) => {
 // Список сотрудников
 app.get('/personal', (req, res)=> {
 	res.send(personal);
+})
+
+// Количество сотрудников
+app.get('/countPersonals', (req, res)=>{
+	countPersonals(req, res, personal)
 })
 
 	// Новый сотрудник

@@ -67,8 +67,6 @@ function getCanvas(personal) {
 	function line(x){
 		ctx.lineTo(x, y);
 		ctx.stroke()
-
-		console.log(month, x, y)
 	}
 	if(month >= 1) {
 		x = x + 50;
@@ -118,4 +116,19 @@ function getCanvas(personal) {
 		x = x + 50;
 		line(x)
 	}
+}
+
+document.getElementById("countPersonal").onclick = function() {
+	const main = document.getElementById("main");
+	const url = "http://localhost:2019/countPersonals";
+	const xhr = new XMLHttpRequest();
+	xhr.open('GET', url, true)
+	xhr.onreadystatechange =()=>{
+		if(xhr.readyState === XMLHttpRequest.DONE){
+			let count = JSON.parse(xhr.response)
+			let countPersonal = count[0].count;
+			main.innerHTML = `<div><h3>Кол-во сотрудников : ${countPersonal}</h3></div>`
+		}
+	}
+	xhr.send()
 }
