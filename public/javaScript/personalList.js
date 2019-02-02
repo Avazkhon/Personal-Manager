@@ -105,9 +105,9 @@ function getCard(id){
     return(
         `<div class="contact">
            <h3>Контакты</h3>
-          <div class="getCard" ><h5>Телефон</h5><div></div></div>
-          <div class="getCard" ><h5>эл. Почта</h5><div></div></div>
-          <div class="getCard" ><h5>Домашний адрес</h5><div></div></div>
+          <div class="getCard" ><h5>Телефон</h5><div>${personals[index].user.numberPhon}</div></div>
+          <div class="getCard" ><h5>эл. Почта</h5><div>${personals[index].user.mail}</div></div>
+          <div class="getCard" ><h5>Домашний адрес</h5><div>${personals[index].user.homeAddress}</div></div>
         </div>`
       )
   }

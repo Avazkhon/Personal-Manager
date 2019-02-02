@@ -5,42 +5,39 @@
 
 #formInner {
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr;
 	grid-template-rows: 1fr 1fr;
 	width: 100%;
-	grid-gap: 20px;
+	grid-gap: 35px;
 }
 
 
-.name, .profession, .positionPersonal, .positionPersonal, .scils, .programmingLanguages {
+.name, .profession, .positionPersonal, .positionPersonal, .scils, .programmingLanguages, .contact {
 	display: grid;
-	grid-template-rows:  20px 20px 20px;
+	grid-template-rows:  20px 20px 20px 20px 20px 20px;
+	grid-row-gap: 5px;
 	width: 100%;
 	border: 1px solid;
 	border-radius: 20px;
 	box-shadow: 0 0 10px rgba(0,0,0,5);
-	padding: 5px;
+	padding: 10px;
 
 }
 
+#homeAddress {
 
-#listLangulares {
-	overflow: auto;
-	width: 100px;
-	height: 100px
 }
 
 /*all*/
-#listScils, #listLangulares {
+#listScils, #listLangulares{
 	overflow: auto;
-	width: 100px;
-	height: 100px;
+	height: 150px;
+	padding: 5px;
 }
 
-.liscil, .listLangulares{
-	margin-left: -40px;
+.liScil, .listLangulares{
 	font-size: 12px;
-	width: 100px;
+	text-align: center;
 	padding: 2px;
 	border: 1px solid;
 	border-radius: 20px;

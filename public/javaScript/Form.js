@@ -25,7 +25,7 @@ function newScils () {
 	// если стока не пуста
 	if(scil !== '') {
 		// то отобразить 
-		document.getElementById('listScils').innerHTML += `<li class='liscil' name='${scil}'>${scil}</li>`;
+		document.getElementById('listScils').innerHTML += `<li class='liScil' name='${scil}'>${scil}</li>`;
 		// удалить содержимое
 		document.getElementById('scil').value = '';
 		obj.scils.push(scil);

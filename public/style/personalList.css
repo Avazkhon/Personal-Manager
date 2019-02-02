@@ -112,6 +112,7 @@ h5 {
 	grid-template-columns: 1fr 1fr ;
 	grid-gap: 10px;
 	overflow: hidden;
+	padding: 5px;
 
 }
 
