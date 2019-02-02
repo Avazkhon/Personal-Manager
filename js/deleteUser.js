@@ -13,10 +13,5 @@ module.exports = function deliteUser (req, res, archivem, personal) {
 				res.send(personal) 
 			}
 		}
-
-		// let deleteUser = personal[index];
-		// personal.splice(index, 1) // удалить из массива персонала
-		// res.send(personal) 
-		// console.log(deleteUser, "перемещен в archivem")
 	}deletePerson()
 }

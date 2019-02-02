@@ -1,0 +1,56 @@
+#newUser{
+	margin: 20px;
+	padding: 5px;
+}
+
+#formInner {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	width: 100%;
+	grid-gap: 20px;
+}
+
+
+.name, .profession, .positionPersonal, .positionPersonal, .scils, .programmingLanguages {
+	display: grid;
+	grid-template-rows:  20px 20px 20px;
+	width: 100%;
+	border: 1px solid;
+	border-radius: 20px;
+	box-shadow: 0 0 10px rgba(0,0,0,5);
+	padding: 5px;
+
+}
+
+
+#listLangulares {
+	overflow: auto;
+	width: 100px;
+	height: 100px
+}
+
+/*all*/
+#listScils, #listLangulares {
+	overflow: auto;
+	width: 100px;
+	height: 100px;
+}
+
+.liscil, .listLangulares{
+	margin-left: -40px;
+	font-size: 12px;
+	width: 100px;
+	padding: 2px;
+	border: 1px solid;
+	border-radius: 20px;
+	box-shadow: 0 0 10px rgba(0,0,0,5);
+}
+
+
+#newPersonal {
+	width: 100%;
+	min-width: 640px;
+	height: 20px;
+	margin-top: 100px; 
+}

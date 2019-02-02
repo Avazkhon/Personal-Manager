@@ -44,61 +44,6 @@ li, button {
 	overflow: hidden;
 }
 
-#newUser {
-	margin: 5px auto;
-	width: 100%;
-	min-width: 540px;
-	height: 410px;
-	border: 1px solid;
-	border-radius: 20px;
-	box-shadow: 0 0 10px rgba(0,0,0,5);
-}
-
-.name, .profession, .positionPersonal, .positionPersonal, .scils, .programmingLanguages {
-	float: left;
-	margin: 5px;
-	width: 200px;
-	height: 370px;
-}
-
-
-/*name*/
-
-.inputNewUser {
-	margin-bottom: 10px; 
-}
-
-
-#listLangulares {
-	overflow: auto;
-	width: 100px;
-	height: 100px
-}
-
-/*all*/
-#listScils, #listLangulares {
-	overflow: auto;
-	width: 100px;
-	height: 100px;
-}
-
-.liscil, .listLangulares{
-	margin-left: -40px;
-	font-size: 12px;
-	width: 100px;
-	padding: 2px;
-	border: 1px solid;
-	border-radius: 20px;
-	box-shadow: 0 0 10px rgba(0,0,0,5);
-}
-
-
-#newPersonal {
-	width: 100%;
-	min-width: 640px;
-	height: 20px;
-}
-
 .footer {
 	background-color: DarkGrey;
 	width: 100%;
