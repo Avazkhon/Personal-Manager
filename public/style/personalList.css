@@ -65,13 +65,20 @@ h5 {
 
 		/*card*/
 
-
+.card {
+	display: grid;
+	grid-template-columns: 235px 1fr;
+	grid-gap: 5px;
+}
 
 .getCardIMG{
 	float: left;
 	width: 200px;
 	height: 300px;
 	border: 1px solid;
+	border-radius: 20px;
+	box-shadow: 0 0 10px rgba(0,0,0,5);
+	padding: 15px;
 }
 .getCardIMG img {
 	width: 200px;
@@ -82,12 +89,11 @@ h5 {
 	background-color: red;
 }
 
-.personalInformation,  .workInformation, .education{
-	float: left;
+.personalInformation,  .workInformation, .education, .contact{
 	border: 1px solid;
-	width: 400px;
-	min-width: 200px;
-	height: 300px;
+	border-radius: 20px;
+	box-shadow: 0 0 10px rgba(0,0,0,5);
+	padding: 15px;
 }
 
 .personalInformation{
@@ -102,7 +108,11 @@ h5 {
 }
 
 .information{
+	display: grid;
+	grid-template-columns: 1fr 1fr ;
+	grid-gap: 10px;
 	overflow: hidden;
+
 }
 
 .getCard :nth-child(even)  { background-color: #D3D3D3;}

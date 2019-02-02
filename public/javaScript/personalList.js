@@ -55,12 +55,13 @@ function getCard(id){
     `<div class="card">
       <div class="getCardIMG" >
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFaORdmj-6CrbpTkWsgeTr67mI_kBy6bCF_l9WPTDL3yIC_D06" alt="фото"  />
-        <input type="button" id="deleteUser" value="Удалить" onclick="deleteUser(${personals[index].id})">
+        <input type="button" id="deleteUser" class="btn" value="Удалить" onclick="deleteUser(${personals[index].id})">
         </div>
       <div class="information">
         ${personalInformation() }
         ${workInformation() }
         ${education() }
+        ${contact() }
       </div>
     </div>`)
 
@@ -98,6 +99,17 @@ function getCard(id){
         <div class="getCard" ><h5>Вид учереждения</h5><div>${personals[index].user.education}</div></div>
       </div>`
     )
+  }
+
+  function contact() {
+    return(
+        `<div class="contact">
+           <h3>Контакты</h3>
+          <div class="getCard" ><h5>Телефон</h5><div></div></div>
+          <div class="getCard" ><h5>эл. Почта</h5><div></div></div>
+          <div class="getCard" ><h5>Домашний адрес</h5><div></div></div>
+        </div>`
+      )
   }
 }
 /// Поисковие
