@@ -1,3 +1,20 @@
+.personalLIstTools{
+	margin: 20px;
+	display: grid;
+	grid-template-columns: 1fr 250px;
+	grid-column-gap: 10px;
+}
+
+#personalLIstTools{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.userSearch{
+	display: grid;
+	grid-template-columns: 1fr 55px;
+	grid-column-gap: 10px;
+}
 
 h3{
 	text-align: center;

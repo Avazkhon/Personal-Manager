@@ -15,23 +15,19 @@ li, button {
 	box-shadow: 0 0 10px rgba(0,0,0,5);
 }
 
-.tools{
-	margin:20px;
+.headTools{
+	width: 350px;
+	height: 50px;
+	margin: 20px;
 }
-.tools ul li {
-	float: left;
-	padding: 5px;
-	margin-left: 5px;
-}
-
-.userSearch{
-	float: right;
-	margin-left: 15px: 
+#headTools{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-column-gap: 10px;
 }
 
 .btn {
 	cursor: pointer;
-	margin-top: 5px;
 	background-color: Gainsboro;
 	border-radius: 20px;
 	box-shadow: 0 0 10px rgba(0,0,0,5);

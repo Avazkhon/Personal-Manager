@@ -127,7 +127,7 @@ document.getElementById("countPersonal").onclick = function() {
 		if(xhr.readyState === XMLHttpRequest.DONE){
 			let count = JSON.parse(xhr.response)
 			let countPersonal = count[0].count;
-			main.innerHTML = `<div><h3>Кол-во сотрудников : ${countPersonal}</h3></div>`
+			main.innerHTML = `<div id="sumEmployees" ><h3>Кол-во сотрудников : ${countPersonal}</h3></div>`
 		}
 	}
 	xhr.send()
