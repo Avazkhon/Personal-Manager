@@ -1,7 +1,9 @@
 
 module.exports = function searchName (req, res, personal) {
+	let namePhoto = req.files.foo.name;
 	let user = {
 		id: Math.floor(Math.random() * (9999, 9999999)) + 1,
+		photo: [namePhoto],
 		user: req.body
 	};
 
@@ -26,5 +28,15 @@ module.exports = function searchName (req, res, personal) {
 		else{
 			res.sendStatus(404)
 		}
+		upload()
+		
 	}newUser(personal, passNumber);
+
+	function upload() {
+		let name = req.files.foo.name;
+		let foo = req.files.foo;
+	  	foo.mv(`/db/photo/${name}.jpg`, function(err) {
+	  		console.log(name)
+	  });
+	}
 }

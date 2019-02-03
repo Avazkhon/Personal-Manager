@@ -24,7 +24,10 @@
 			</div>
 		</div>
 		<div id='content'>
-			<form id='newUser' method='post'>
+			<form id='newUser'
+				  method='post'
+				  action='http://localhost:2019/form.html'
+				  encType="multipart/form-data">
 				<div id="formInner">
 					<div class="name">
 							<label for='firstName'>Имя</label>
@@ -97,6 +100,9 @@
 						<input type="text" id="mail" name="mail">
 							<label for="homeAddress">Домашний адрес</label>
 						<input type="text" id="homeAddress" name="homeAddress">
+					</div>
+					<div class="photo">
+						<p><input type="file" name="foo" multiple accept="image/*,image/jpeg">
 					</div>
 				</div>
 				<div>

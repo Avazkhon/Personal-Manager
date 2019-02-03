@@ -54,7 +54,7 @@ function getCard(id){
   $("#user").html(
     `<div class="card">
       <div class="getCardIMG" >
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFaORdmj-6CrbpTkWsgeTr67mI_kBy6bCF_l9WPTDL3yIC_D06" alt="фото"  />
+        <img src="getCardIMG${personals[index].photo[0]}" alt="фото"  />
         <input type="button" id="deleteUser" class="btn" value="Удалить" onclick="deleteUser(${personals[index].id})">
         </div>
       <div class="information">
@@ -93,7 +93,7 @@ function getCard(id){
   function education () {
     return (
      ` <div class="education" >
-        <h3>образование</h3>
+        <h3>Образование</h3>
         <div class="getCard" ><h5>Название учебного учереждения</h5><div>${personals[index].user.institutionName}</div></div>
         <div class="getCard" ><h5>Профессия</h5><div>${personals[index].user.profession}</div></div>
         <div class="getCard" ><h5>Вид учереждения</h5><div>${personals[index].user.education}</div></div>

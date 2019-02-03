@@ -1,9 +1,12 @@
 const express = require ('express');
 const bodyParser = require('body-parser');
+const fileUpload = require('express-fileupload');
+
 // мои модули
 const searchName = require ('./js/searchName');
 const deleteUser = require ('./js/deleteUser')
 const countPersonals = require('./js/main')
+const getPhotoUser = require('./js/getPhotoUser')
 
 //Типа BD
 let personal = require('./db/personals');
@@ -11,6 +14,7 @@ let archive = require('./db/archive');
 
 const app = express();
 
+app.use(fileUpload());
 app.use(bodyParser.json());
 app.use(bodyParser.json({extended: true}))
 app.use(bodyParser.urlencoded({extended: true}));
@@ -47,6 +51,10 @@ app.get('/personal', (req, res)=> {
 // Количество сотрудников
 app.get('/countPersonals', (req, res)=>{
 	countPersonals(req, res, personal)
+})
+
+app.get('/getCardIMG:namePhoto', (req, res)=>{
+	getPhotoUser(req, res,)
 })
 
 	// Новый сотрудник

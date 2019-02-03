@@ -12,7 +12,7 @@
 }
 
 
-.name, .profession, .positionPersonal, .positionPersonal, .scils, .programmingLanguages, .contact {
+.name, .profession, .positionPersonal, .positionPersonal, .scils, .programmingLanguages, .contact, .photo {
 	display: grid;
 	grid-template-rows:  20px 20px 20px 20px 20px 20px;
 	grid-row-gap: 5px;
