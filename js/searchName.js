@@ -3,8 +3,8 @@ module.exports = function searchName (req, res, personal) {
 	let namePhoto = req.files.foo.name;
 	let user = {
 		id: Math.floor(Math.random() * (9999, 9999999)) + 1,
-		photo: [namePhoto],
-		user: req.body
+		user: req.body,
+		photo: [namePhoto]
 	};
 
 	let passNumber = Number(user.user.passNumber);

@@ -14,7 +14,8 @@ module.exports = [
 		"profession": "Юрист",
 		"subdivision": "frontend",
 		"wage": 80000
-		}
+		},
+		"photo": ["namePhoto"]
 	},
 	{	
 	"id": 1,
@@ -31,7 +32,8 @@ module.exports = [
 		"profession": "",
 		"subdivision": "",
 		"wage": 0 
-		}
+		},
+		"photo": ["namePhoto"]
 	},
 	{	
 	"id": 2,
@@ -48,7 +50,8 @@ module.exports = [
 		"profession": "",
 		"subdivision": "",
 		"wage": 70000
-		}
+		},
+		"photo": ["namePhoto"]
 	},
 	{	
 	"id": 3,
@@ -65,7 +68,8 @@ module.exports = [
 		"profession": "",
 		"subdivision": "Миссионер",
 		"wage": 60000
-		}
+		},
+		"photo": ["namePhoto"]
 	},
 	{	
 	"id": 4,
@@ -82,6 +86,7 @@ module.exports = [
 		"profession": "",
 		"subdivision": "",
 		"wage": 50000
-		}
+		},
+		"photo": ["namePhoto"]
 	},
 ];
