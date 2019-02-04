@@ -11,6 +11,7 @@ const getPhotoUser = require('./js/getPhotoUser')
 //Типа BD
 let personal = require('./db/personals');
 let archive = require('./db/archive');
+let avatar =(__dirname+'/images.jpg')
 
 const app = express();
 
@@ -53,14 +54,13 @@ app.get('/countPersonals', (req, res)=>{
 	countPersonals(req, res, personal)
 })
 
-app.get('/getCardIMG:namePhoto', (req, res)=>{
-	getPhotoUser(req, res,)
+app.get('/avatar', (req, res)=>{
+	getPhotoUser(req, res, avatar)
 })
 
 	// Новый сотрудник
 app.post('/form.html',(req, res) => {
 	searchName(req, res, personal)
-	// res.redirect('/personal');
 
 });
 

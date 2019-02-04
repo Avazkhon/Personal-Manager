@@ -54,7 +54,7 @@ function getCard(id){
   $("#user").html(
     `<div class="card">
       <div class="getCardIMG" >
-        <img src="getCardIMG${personals[index].photo[0]}" alt="фото"  />
+        <img src="/avatar" alt="фото"  />
         <input type="button" id="deleteUser" class="btn" value="Удалить" onclick="deleteUser(${personals[index].id})">
         </div>
       <div class="information">

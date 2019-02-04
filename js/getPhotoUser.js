@@ -1,4 +1,3 @@
-module.exports = function getPhotoUser (req, res) {
-	let namePhoto = req.params.name;
-	res.send(namePhoto)
+module.exports = function getPhotoUser (req, res, avatar) {
+	res.sendFile(avatar)
 }
