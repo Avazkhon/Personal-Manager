@@ -15,7 +15,7 @@ module.exports = [
 		"subdivision": "frontend",
 		"wage": 80000
 		},
-		"photo": ["images"]
+		"photo": ["Khan.jpg"]
 	},
 	{	
 	"id": 1,
@@ -33,7 +33,7 @@ module.exports = [
 		"subdivision": "",
 		"wage": 0 
 		},
-		"photo": ["images"]
+		"photo": ["images.jpg"]
 	},
 	{	
 	"id": 2,
@@ -51,7 +51,7 @@ module.exports = [
 		"subdivision": "",
 		"wage": 70000
 		},
-		"photo": ["images"]
+		"photo": ["bill.jpg"]
 	},
 	{	
 	"id": 3,
@@ -69,7 +69,7 @@ module.exports = [
 		"subdivision": "Миссионер",
 		"wage": 60000
 		},
-		"photo": ["images"]
+		"photo": ["van_gogh.jpg"]
 	},
 	{	
 	"id": 4,
@@ -87,6 +87,6 @@ module.exports = [
 		"subdivision": "",
 		"wage": 50000
 		},
-		"photo": ["images"]
+		"photo": ["Benjamin_Franklin.jpg"]
 	},
 ];

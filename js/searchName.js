@@ -22,21 +22,31 @@ module.exports = function searchName (req, res, personal) {
 
 		if(!number) {
 			personal.push(user)
+			upload()
 			res.redirect('/personalLIst.html')
 		}
 
 		else{
 			res.sendStatus(404)
 		}
-		upload()
 		
 	}newUser(personal, passNumber);
 
 	function upload() {
 		let name = req.files.foo.name;
 		let foo = req.files.foo;
-	  	foo.mv(`/db/photo/${name}.jpg`, function(err) {
-	  		console.log(name)
+		let pathPhoto = `./db/photo/${name}`;
+		console.log(name, pathPhoto)
+	  	if (Object.keys(req.files).length == 0) {
+		    res.status(400).send('Нет Фото!');
+		    return;
+		  }
+
+	  	foo.mv(pathPhoto, function(err) {
+	  		if(err) {
+	  			console.log(err)
+	  		}
+
 	  });
 	}
 }

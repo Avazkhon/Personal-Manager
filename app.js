@@ -15,7 +15,7 @@ let avatar = function (namePhoto) {
 				if(namePhoto === undefined) {
 					return (__dirname+'/db/photo/images.jpg')
 				}
-				return (__dirname+`/db/photo/${namePhoto}.jpg`)
+				return (__dirname+`/db/photo/${namePhoto}`)
 			}
 
 const app = express();
