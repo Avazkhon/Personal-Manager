@@ -11,7 +11,12 @@ const getPhotoUser = require('./js/getPhotoUser')
 //Типа BD
 let personal = require('./db/personals');
 let archive = require('./db/archive');
-let avatar =(__dirname+'/images.jpg')
+let avatar = function (namePhoto) {
+				if(namePhoto === undefined) {
+					return (__dirname+'/db/photo/images.jpg')
+				}
+				return (__dirname+`/db/photo/${namePhoto}.jpg`)
+			}
 
 const app = express();
 
@@ -54,8 +59,8 @@ app.get('/countPersonals', (req, res)=>{
 	countPersonals(req, res, personal)
 })
 
-app.get('/avatar', (req, res)=>{
-	getPhotoUser(req, res, avatar)
+app.get('/avatar/:name' , (req, res)=>{
+	getPhotoUser(req, res, avatar(req.params.name))
 })
 
 	// Новый сотрудник
