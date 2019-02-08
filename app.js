@@ -29,14 +29,15 @@ app.use(bodyParser.urlencoded({extended: true}));
 const port = 2019;
 
 app.use(express.static('public'));
+
 	// Главная страница
 app.get('/', (req, res) => {
 	res.sendFile(__dirname + '/public/main.html');
 });
 
-app.get('/index.html', (req, res) => {
-	res.sendFile(__dirname + '/public/index.html');
-})
+// app.get('/index.html', (req, res) => {
+// 	res.sendFile(__dirname + '/public/index.html');
+// })
 
 	// Список сотрудников
 app.get('/personalLIst.html', (req, res) => {
@@ -65,12 +66,40 @@ app.get('/avatar/:name' , (req, res)=>{
 	getPhotoUser(req, res, avatar(req.params.name))
 })
 
-	// Новый сотрудник
+// Новый сотрудник
 app.post('/form.html',(req, res) => {
 	searchName(req, res, personal)
 
 });
 
+app.post('/correctiveUser', (req, res)=>{
+	function correctiveUser(req, res, users) {
+		let reqUser = req.body;
+		for(kay in users) {
+			if(users[kay].id === reqUser.id) {
+				correctProperties(users[kay], reqUser.user )
+			} 
+		}
+	}correctiveUser(req, res, personal);
+
+	function correctProperties (properties, newProperties) {
+		let bool = false;
+		for(newPoint in newProperties){
+			for(point in properties.user){
+				if(point == newPoint) {
+					properties.user[point] = newProperties[newPoint]
+					console.log(`свойства ${point} у id: ${properties.id} изменино на ${newProperties[newPoint]}`)
+					bool = true;
+				}
+			}
+		}
+		if(bool) {
+			res.sendStatus(200)
+		}
+	}
+})
+
+// удаления сотрудника и переменения в архив
 app.post('/deliteUser', (req, res)=> {
 	deleteUser(req, res, archive, personal)
 })
