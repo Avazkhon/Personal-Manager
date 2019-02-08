@@ -55,7 +55,12 @@ function getCard(id){
     `<div class="card">
       <div class="getCardIMG" >
         <img src="/avatar/${personals[index].photo[0]}" alt="фото"  />
-        <input type="button" id="deleteUser" class="btn" value="Удалить" onclick="deleteUser(${personals[index].id})">
+        <div class="userTools">
+           <input type="button" id="deleteUser" class="btn" value="Удалить" onclick="deleteUser(${personals[index].id})">
+          <div id="correct" >
+            <input type="button" id="correctUser" class="btn" value="изменить" onclick="correctUser()">
+          </div>
+        </div>
         </div>
       <div class="information">
         ${personalInformation() }
@@ -156,3 +161,26 @@ function deleteUser (id) {
 
   xhr.send(body);
 }
+
+function correctUser() {
+  document.getElementById('correct').innerHTML = innerCorrectUser();
+  function innerCorrectUser() {
+    return (
+      `<div>
+        <input type="button" id="dontCorrect" class="btn" value="Отмена"  onclick="dontCorrect()" >
+        <input type="button" id="saveCorrect" class="btn" value="Сохранить" onclick="saveCorrect()" >
+      </div>`
+    )
+  }
+}
+
+function dontCorrect() {
+  let but = `<input type="button" id="correctUser" class="btn" value="изменить" onclick="correctUser()">`;
+  document.getElementById('correct').innerHTML = but;
+}
+
+function saveCorrect() {
+  let but = `<input type="button" id="correctUser" class="btn" value="изменить" onclick="correctUser()">`;
+  document.getElementById('correct').innerHTML = but;
+}
+

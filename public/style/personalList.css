@@ -74,7 +74,7 @@ h5 {
 .getCardIMG{
 	float: left;
 	width: 200px;
-	height: 300px;
+	height: 360px;
 	border: 1px solid;
 	border-radius: 20px;
 	box-shadow: 0 0 10px rgba(0,0,0,5);
@@ -83,6 +83,26 @@ h5 {
 .getCardIMG img {
 	width: 200px;
 	overflow: hidden;
+}
+
+.userTools{
+	display: grid;
+	grid-template-columns: 1fr;
+	/*grid-template-rows: 1fr;*/
+	grid-gap: 10px;
+}
+
+#correct{
+	display: grid;
+	grid-template-columns: 1fr;
+	/*grid-template-rows: 1fr 1fr;*/
+	grid-gap: 10px;
+}
+#correct div{
+	display: grid;
+	grid-template-columns: 1fr;
+	/*grid-template-rows: 1fr 1fr;*/
+	grid-gap: 10px;
 }
 
 #deleteUser{
@@ -121,8 +141,6 @@ h5 {
 
 .getCard div{
 	display: grid;
-/*	grid-template-columns: repeat(1fr);
-	grid-template-rows: repeat(1fr);
-*/	border: 1px solid;
+	border: 1px solid;
 	cursor: pointer;
 }
