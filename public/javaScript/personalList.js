@@ -1,4 +1,5 @@
 let personals;
+let correctUser;
 // вывод перонала
 $(document).ready(()=> {
   $("#listOfEmployees").on("click", (personal) => {
@@ -58,7 +59,7 @@ function getCard(id){
         <div class="userTools">
            <input type="button" id="deleteUser" class="btn" value="Удалить" onclick="deleteUser(${personals[index].id})">
           <div id="correct" >
-            <input type="button" id="correctUser" class="btn" value="изменить" onclick="correctUser()">
+            <input type="button" id="correctUser" class="btn" value="изменить" onclick="correctUser.rending()">
           </div>
         </div>
         </div>
@@ -162,25 +163,32 @@ function deleteUser (id) {
   xhr.send(body);
 }
 
-function correctUser() {
-  document.getElementById('correct').innerHTML = innerCorrectUser();
-  function innerCorrectUser() {
+class CorrectUser{
+  constructor() {
+  }
+
+  correctUser() {
     return (
       `<div>
-        <input type="button" id="dontCorrect" class="btn" value="Отмена"  onclick="dontCorrect()" >
-        <input type="button" id="saveCorrect" class="btn" value="Сохранить" onclick="saveCorrect()" >
+        <input type="button" id="dontCorrect" class="btn" value="Отмена"  onclick="correctUser.dontCorrect()" >
+        <input type="button" id="saveCorrect" class="btn" value="Сохранить" onclick="correctUser.saveCorrect()" >
       </div>`
     )
   }
+
+  dontCorrect() {
+   document.getElementById('correct').innerHTML = `<input type="button" id="correctUser" class="btn" value="изменить" onclick="correctUser.rending()">`;
+   console.log("dontCorrect")
+  }
+
+  saveCorrect() {
+    document.getElementById('correct').innerHTML = `<input type="button" id="correctUser" class="btn" value="изменить" onclick="correctUser.rending()">`;
+    console.log("saveCorrect")
+  }
+
+  rending() {
+    document.getElementById('correct').innerHTML = this.correctUser()
+  }
 }
 
-function dontCorrect() {
-  let but = `<input type="button" id="correctUser" class="btn" value="изменить" onclick="correctUser()">`;
-  document.getElementById('correct').innerHTML = but;
-}
-
-function saveCorrect() {
-  let but = `<input type="button" id="correctUser" class="btn" value="изменить" onclick="correctUser()">`;
-  document.getElementById('correct').innerHTML = but;
-}
-
+correctUser = new CorrectUser();
