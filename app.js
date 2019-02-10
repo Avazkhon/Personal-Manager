@@ -72,6 +72,7 @@ app.post('/form.html',(req, res) => {
 
 });
 
+// изменения свойств сотрудника
 app.post('/correctiveUser', (req, res)=>{
 	function correctiveUser(req, res, users) {
 		let reqUser = req.body;
