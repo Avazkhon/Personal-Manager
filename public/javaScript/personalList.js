@@ -25,7 +25,7 @@ function person(user){
   inner +=`<div class="headerPerson" >
               <div class="headerValue" >ID</div>
               <div class="headerValue" >Имя</div>
-              <div class="headerValue" >Очество</div>
+              <div class="headerValue" >Фамилия</div>
               <div class="headerValue" >Должность</div>
               <div class="headerValue" >Уровень</div>
           </div>` ;
@@ -80,10 +80,22 @@ function personalInformation (index) {
   return (
       `<div class="personalInformation" >
       <h3>Личная информация</h3>
-      <div class="getCard" ><h5>Фамилия</h5><div title="firstName" ondblclick=getInput("getCardLastName") id=getCardLastName >${lastName}</div></div>
-      <div class="getCard" ><h5>Имя</h5><div>${firstName}</div></div>
-      <div class="getCard" ><h5>Очество</h5><div>${familyName}</div></div>
-      <div class="getCard" ><h5>Номер паспорта</h5><div>${passNumber}</div></div>
+      <div class="getCard" >
+        <h5>Фамилия</h5>
+        <div title="lastName" ondblclick=getInput("getCardLastName") id=getCardLastName >${lastName}</div>
+      </div>
+      <div class="getCard" >
+        <h5>Имя</h5>
+        <div title="firstName" ondblclick=getInput("getCardFirstName") id=getCardFirstName >${firstName}</div>
+      </div>
+      <div class="getCard" >
+        <h5>Очество</h5>
+        <div title="familyName" ondblclick=getInput("getCardFamilyName") id=getCardFamilyName >${familyName}</div>
+      </div>
+      <div class="getCard" >
+        <h5>Номер паспорта</h5>
+        <div div title="passNumber" ondblclick=getInput("getCardPassNumber") id=getCardPassNumber >${passNumber}</div>
+      </div>
     </div>`
     )
 }
@@ -92,11 +104,26 @@ function workInformation (index) {
   return(
       `<div class="workInformation">
       <h3>Служебная информация</h3>
-      <div class="getCard" ><h5>ID</h5><div>${personals[index].id}</div></div>
-      <div class="getCard" ><h5>Должность</h5><div>${personals[index].user.position}</div></div>
-      <div class="getCard" ><h5>Уровень</h5><div>${personals[index].user.lavel}</div></div>
-      <div class="getCard" ><h5>Напрвления</h5><div>${personals[index].user.subdivision}</div></div>
-      <div class="getCard" ><h5>Зароботная плата</h5><div>${personals[index].user.wage}</div></div>
+      <div class="getCard" >
+        <h5>ID</h5>
+        <div title="familyName" >${personals[index].id}</div>
+      </div>
+      <div class="getCard" >
+        <h5>Должность</h5>
+        <div div title="position" ondblclick=getInput("getCardPosition") id=getCardPosition >${personals[index].user.position}</div>
+      </div>
+      <div class="getCard" >
+        <h5>Уровень</h5>
+        <div div title="lavel" ondblclick=getInput("getCardLavel") id=getCardLavel >${personals[index].user.lavel}</div>
+      </div>
+      <div class="getCard" >
+        <h5>Напрвления</h5>
+        <div div title="subdivision" ondblclick=getInput("getCardSubdivision") id=getCardSubdivision >${personals[index].user.subdivision}</div>
+      </div>
+      <div class="getCard" >
+        <h5>Зароботная плата</h5>
+        <div div title="wage" ondblclick=getInput("getCardWage") id=getCardWage >${personals[index].user.wage}</div>
+      </div>
     </div>`
     )
 }
@@ -105,9 +132,18 @@ function education (index) {
   return (
    ` <div class="education" >
       <h3>Образование</h3>
-      <div class="getCard" ><h5>Название учебного учереждения</h5><div>${personals[index].user.institutionName}</div></div>
-      <div class="getCard" ><h5>Профессия</h5><div>${personals[index].user.profession}</div></div>
-      <div class="getCard" ><h5>Вид учереждения</h5><div>${personals[index].user.education}</div></div>
+      <div class="getCard" >
+        <h5>Название учебного учереждения</h5>
+        <div div title="institutionName" ondblclick=getInput("getCardInstitutionName") id=getCardInstitutionName >${personals[index].user.institutionName}</div>
+      </div>
+      <div class="getCard" >
+        <h5>Профессия</h5>
+        <div div title="profession" ondblclick=getInput("getCardProfession") id=getCardProfession >${personals[index].user.profession}</div>
+      </div>
+      <div class="getCard" >
+        <h5>Вид учереждения</h5>
+        <div div title="education" ondblclick=getInput("getCardEducation") id=getCardEducation >${personals[index].user.education}</div>
+      </div>
     </div>`
   )
 }
@@ -116,9 +152,18 @@ function contact(index) {
   return(
       `<div class="contact">
          <h3>Контакты</h3>
-        <div class="getCard" ><h5>Телефон</h5><div>${personals[index].user.numberPhon}</div></div>
-        <div class="getCard" ><h5>эл. Почта</h5><div>${personals[index].user.mail}</div></div>
-        <div class="getCard" ><h5>Домашний адрес</h5><div>${personals[index].user.homeAddress}</div></div>
+        <div class="getCard" >
+          <h5>Телефон</h5
+          ><div div title="numberPhon" ondblclick=getInput("getCardNumberPhon") id=getCardNumberPhon >${personals[index].user.numberPhon}</div>
+        </div>
+        <div class="getCard" >
+          <h5>эл. Почта</h5>
+          <div div title="mail" ondblclick=getInput("getCardMail") id=getCardMail >${personals[index].user.mail}</div>
+        </div>
+        <div class="getCard" >
+          <h5>Домашний адрес</h5>
+          <div div title="homeAddress" ondblclick=getInput("getCardHomeAddress") id=getCardHomeAddress >${personals[index].user.homeAddress}</div>
+        </div>
       </div>`
     )
 }
@@ -202,26 +247,26 @@ correctUser = new CorrectUser();
 function getInput(id) {
   let elem = document.getElementById(id)
   // создания input
-  let input =  `<input type=text  value=${elem.textContent} >`;
+  let input =  `<input type=text  onchange=addValueServer(${id}) value=${elem.textContent} >`;
   elem.innerHTML = input;
-
-  // вызов ф для создания объектов
-  addValueServer(elem.firstChild.value, elem.title )
 }
-
-// вызов ф для создания объектов
-function addValueServer(valueName, name) {
+// отправка на сервер
+function addValueServer(id) {
+  let elem = id;
+  let value = elem.firstChild.value;
+  let item = elem.title;
+  console.log({item: value})
   let xhr = new XMLHttpRequest;
   let url = "http://localhost:2019/correctiveUser"
-  let body = { 
-    "id": 1,
-    "user": {
-      name: valueName,
+  let body = JSON.stringify({ 
+    id: 0,
+    user: {
+      [item]: value,
     }
-  }
-  console.log("данные отправляются")
+  })
+  console.log("данные отправляются", body)
   xhr.open("POST", url,)
-  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+  xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
     xhr.onreadystatechange =()=>{
       if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
        console.log("данные успешно отправлены")
