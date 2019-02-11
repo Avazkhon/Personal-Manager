@@ -7,15 +7,15 @@ document.addEventListener('DOMContentLoaded', ()=>{
 	xhr.onreadystatechange =()=>{
 		if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
 			console.log(xhr.responseText)
-			main()
+			reports()
 		}
 	}
 	xhr.send()
 })
 
 //вывод report
-function main () {
-	let main = document.getElementById("main");
+function reports () {
+	let reports = document.getElementById("reports");
 	document.getElementById("wagaFunction").onclick = function canvas () {
 		const url = "http://localhost:2019/personal";
 		const xhr = new XMLHttpRequest();
@@ -29,7 +29,7 @@ function main () {
 					wage += JSON.parse(personal[i].user.wage);
 				}
 			}
-			main.innerHTML = `<div class="report" >
+			reports.innerHTML = `<div class="report" >
 								<div class="wage" >
 									<h3>Сумма ЗП: ${wage}</h3>
 									<h3 id="h3WageMid" ></h3>
@@ -119,7 +119,7 @@ function getCanvas(personal) {
 }
 
 document.getElementById("countPersonal").onclick = function() {
-	const main = document.getElementById("main");
+	const reports = document.getElementById("reports");
 	const url = "http://localhost:2019/countPersonals";
 	const xhr = new XMLHttpRequest();
 	xhr.open('GET', url, true)
@@ -127,7 +127,7 @@ document.getElementById("countPersonal").onclick = function() {
 		if(xhr.readyState === XMLHttpRequest.DONE){
 			let count = JSON.parse(xhr.response)
 			let countPersonal = count[0].count;
-			main.innerHTML = `<div id="sumEmployees" ><h3>Кол-во сотрудников : ${countPersonal}</h3></div>`
+			reports.innerHTML = `<div id="sumEmployees" ><h3>Кол-во сотрудников : ${countPersonal}</h3></div>`
 		}
 	}
 	xhr.send()
