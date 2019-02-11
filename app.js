@@ -92,6 +92,10 @@ app.post('/correctiveUser', (req, res)=>{
 					console.log(`свойства ${point} у id: ${properties.id} изменино на ${newProperties[newPoint]}`)
 					bool = true;
 				}
+				properties.user[newPoint] = newProperties[newPoint];
+				console.log(`Созданно своисва ${newPoint} у id: ${properties.id} со значением ${newProperties[newPoint]}`)
+				break
+				
 			}
 		}
 		if(bool) {

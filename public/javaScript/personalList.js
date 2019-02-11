@@ -254,8 +254,6 @@ function getInput(id) {
 }
 // отправка на сервер
 function addValueServer(elem) {
-  // let elem = element;
-  // let idValue =element.id;
   let value = elem.firstChild.value;
   let item = elem.title;
   console.log(elem)
