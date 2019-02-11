@@ -16,13 +16,21 @@ li, button {
 }
 
 .headTools{
-	width: 350px;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-column-gap: 10px;
 	height: 50px;
 	margin: 20px;
 }
 #headTools{
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-column-gap: 10px;
+}
+
+#innerUSer{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
 	grid-column-gap: 10px;
 }
 
