@@ -257,7 +257,6 @@ function getInput(id) {
 function addValueServer(elem) {
   let value = elem.firstChild.value;
   let item = elem.title;
-  console.log(elem)
   let xhr = new XMLHttpRequest;
   let url = "http://localhost:2019/correctiveUser"
   let body = JSON.stringify({ 
@@ -269,10 +268,10 @@ function addValueServer(elem) {
   console.log("данные отправляются", body)
   xhr.open("POST", url,)
   xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
-    xhr.onreadystatechange =()=>{
-      if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
-       console.log("данные успешно отправлены")
-      }
+  xhr.onreadystatechange =()=>{
+    if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
+     console.log("данные успешно отправлены")
     }
+  }
   xhr.send(body)
 }

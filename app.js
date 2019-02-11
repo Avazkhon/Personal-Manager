@@ -52,6 +52,10 @@ app.get('/main', (req, res) => {
 	// res.send(personal);
 })
 
+app.get('/innerUser', (req, res) =>{
+	res.sendFile(__dirname + '/html/innerUser.html')
+})
+
 // Список сотрудников JSON
 app.get('/personal', (req, res)=> {
 	res.send(personal);
