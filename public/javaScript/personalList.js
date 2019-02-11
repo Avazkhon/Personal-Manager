@@ -1,5 +1,6 @@
 let personals;
 let correctUser;
+let index;
 // вывод перонала
 $(document).ready(()=> {
   $("#listOfEmployees").on("click", (personal) => {
@@ -43,7 +44,7 @@ function person(user){
 
 // шаблон для вывода определеного сотрудника
 function getCard(id){
-  let index;
+  // index;
   (function () {
     for(let i=0; i<personals.length; i++) {
       if(personals[i].id === id){
@@ -246,20 +247,22 @@ correctUser = new CorrectUser();
 // получить input
 function getInput(id) {
   let elem = document.getElementById(id)
+  console.log(index)
   // создания input
   let input =  `<input type=text  onchange=addValueServer(${id}) value=${elem.textContent} >`;
   elem.innerHTML = input;
 }
 // отправка на сервер
-function addValueServer(id) {
-  let elem = id;
+function addValueServer(elem) {
+  // let elem = element;
+  // let idValue =element.id;
   let value = elem.firstChild.value;
   let item = elem.title;
-  console.log({item: value})
+  console.log(elem)
   let xhr = new XMLHttpRequest;
   let url = "http://localhost:2019/correctiveUser"
   let body = JSON.stringify({ 
-    id: 0,
+    id: index,
     user: {
       [item]: value,
     }
