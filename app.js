@@ -36,23 +36,23 @@ app.get('/', (req, res) => {
 	res.sendFile(__dirname + '/public/main.html');
 });
 
-// app.get('/index.html', (req, res) => {
-// 	res.sendFile(__dirname + '/public/index.html');
-// })
+app.get('/reports.html', (req, res) => {
+	res.sendFile(__dirname + '/public/reports.html');
+})
 
-	// Список сотрудников
+// Список сотрудников
 app.get('/personalLIst.html', (req, res) => {
 	res.sendFile(__dirname + '/public/personalLIst.html');
 	// res.send(personal);
 })
 
-	// Список сотрудников
+// главная страница
 app.get('/main', (req, res) => {
 	res.sendStatus(200)
 	// res.send(personal);
 })
 
-// Список сотрудников
+// Список сотрудников JSON
 app.get('/personal', (req, res)=> {
 	res.send(personal);
 })
