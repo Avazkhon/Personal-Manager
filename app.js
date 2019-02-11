@@ -8,6 +8,7 @@ const searchName = require ('./js/searchName');
 const deleteUser = require ('./js/deleteUser')
 const countPersonals = require('./js/main')
 const getPhotoUser = require('./js/getPhotoUser')
+const correctiveUser = require('./js/correctiveUser')
 
 //Типа BD
 const personal = require('./db/personals');
@@ -74,34 +75,7 @@ app.post('/form.html',(req, res) => {
 
 // изменения свойств сотрудника
 app.post('/correctiveUser', (req, res)=>{
-	function correctiveUser(req, res, users) {
-		let reqUser = req.body;
-		for(kay in users) {
-			if(users[kay].id === reqUser.id) {
-				correctProperties(users[kay], reqUser.user )
-			} 
-		}
-	}correctiveUser(req, res, personal);
-
-	function correctProperties (properties, newProperties) {
-		let bool = false;
-		for(newPoint in newProperties){
-			for(point in properties.user){
-				if(point == newPoint) {
-					properties.user[point] = newProperties[newPoint]
-					console.log(`свойства ${point} у id: ${properties.id} изменино на ${newProperties[newPoint]}`)
-					bool = true;
-				}
-				properties.user[newPoint] = newProperties[newPoint];
-				console.log(`Созданно своисва ${newPoint} у id: ${properties.id} со значением ${newProperties[newPoint]}`)
-				break
-				
-			}
-		}
-		if(bool) {
-			res.sendStatus(200)
-		}
-	}
+	correctiveUser(req, res, personal);
 })
 
 // удаления сотрудника и переменения в архив

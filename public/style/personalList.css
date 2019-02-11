@@ -24,7 +24,6 @@ h5 {
 	margin: 2px 0 2px 0;
 }
 
-
 #user{
 	margin: 15px;
 
@@ -140,6 +139,7 @@ h5 {
 .getCard :nth-child(odd) { background-color: #B4B3B1;}
 
 .getCard div{
+	height: 20px ;
 	display: grid;
 	border: 1px solid;
 	cursor: pointer;

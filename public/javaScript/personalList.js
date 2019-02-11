@@ -1,6 +1,6 @@
 let personals;
 let correctUser;
-let index;
+let idUser;
 // вывод перонала
 $(document).ready(()=> {
   $("#listOfEmployees").on("click", (personal) => {
@@ -49,6 +49,7 @@ function getCard(id){
     for(let i=0; i<personals.length; i++) {
       if(personals[i].id === id){
         index = i;
+        idUser = personals[i].id;
       }
     }
   }())
@@ -260,7 +261,7 @@ function addValueServer(elem) {
   let xhr = new XMLHttpRequest;
   let url = "http://localhost:2019/correctiveUser"
   let body = JSON.stringify({ 
-    id: index,
+    id: idUser,
     user: {
       [item]: value,
     }
