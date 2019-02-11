@@ -5,8 +5,7 @@ function innerUSer() {
 	xhr.open("GET", url, )
   	xhr.onreadystatechange =()=>{
 	    if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
-	     console.log(xhr.response)
-	     document.getElementById('content').innerHTML = xhr.response
+	     document.getElementById('content').innerHTML = xhr.response;
     	}
  	}
   xhr.send()

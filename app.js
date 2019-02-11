@@ -61,6 +61,11 @@ app.get('/personal', (req, res)=> {
 	res.send(personal);
 })
 
+// регистрация пользователя
+app.get("/innerUserScript", (req, res)=>{
+	res.sendFile(__dirname + '/resSendScript/innerUserScript.js')
+})
+
 // Количество сотрудников
 app.get('/countPersonals', (req, res)=>{
 	countPersonals(req, res, personal)
@@ -69,6 +74,12 @@ app.get('/countPersonals', (req, res)=>{
 // отправить аватарку
 app.get('/avatar/:name' , (req, res)=>{
 	getPhotoUser(req, res, avatar(req.params.name))
+})
+
+// прием нового ползователя JSON
+app.post("/innerUserScript", (req, res)=>{
+	console.log(req.body)
+	res.sendStatus(201)
 })
 
 // Новый сотрудник

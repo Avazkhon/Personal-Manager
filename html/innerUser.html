@@ -1,15 +1,19 @@
-<div class="newUser">
+<form class="newUser" name="innerUser">
 	<div>
-		<input type="text" name="firstName"  placeholder="Ввидите имя"><br>
+		<input type="text" name="firstName"  placeholder="Ввидите имя" value="">
+		<div id="firstName"></div><br>
 		<input type="text" name="lastName"  placeholder="Ввидите фамилию">
+		<div id="lastName"></div><br>
 	</div>
 	<div>
-		<input type="password" name="" placeholder="Ввидите пароль">
+		<input type="password" name="password" placeholder="Ввидите пароль">
+		<div id="password"></div><br>
 	</div>
 	<div>
-		<input type="email" name="" placeholder="Ввидите email">
+		<input type="email" name="email" placeholder="Ввидите email">
+		<div id="email"></div><br>
 	</div>
 	<div>
-		<input type="submit" class="btn" name="" value="Зарегистрироваться">
+		<input type="button" onclick="innerUserScript()" class="btn" name="" value="Зарегистрироваться">
 	</div>
-</div>
+</form>
