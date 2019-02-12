@@ -46,6 +46,9 @@ function innerUserScript() {
 			if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 201){
 				console.log(xhr.response)
 			}
+			if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 400){
+				console.log(xhr.response)
+			}
 		}
 		xhr.send(body)
 	}

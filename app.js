@@ -9,10 +9,15 @@ const deleteUser = require ('./js/deleteUser')
 const countPersonals = require('./js/main')
 const getPhotoUser = require('./js/getPhotoUser')
 const correctiveUser = require('./js/correctiveUser')
+const getInnerUserScript = require('./js/getInnerUserScript')
 
 //Типа BD
 let consumers = [
-	{firstName: "Avazkhon", lastName: "Kamalkhanov", password: 123123, email: "kamalxanovavazxon@gmail.com"}
+	{id: 123,
+	user: {firstName: "Avazkhon", lastName: "Kamalkhanov", password: 123123, email: "kamalxanovavazxon@gmail.com"},
+	photo: ["images.jpg"],
+	kay: null
+	}
 ];
 const personal = require('./db/personals');
 const archive = require('./db/archive');
@@ -83,30 +88,6 @@ app.get('/avatar/:name' , (req, res)=>{
 app.post("/innerUserScript", (req, res)=>{
 
 	getInnerUserScript(req, res, consumers)
-
-	function getInnerUserScript(req, res, consumers ) {
-		let consumer = req.body;
-
-		let newEmail = consumers.map((item)=>{
-			return item.email;
-		})
-		// вернуть истину если нашел
-		let newConsumers = consumers.some(getEmail=>{
-			if(getEmail.email == consumer[0].email){
-				return true
-			}
-		})
-
-		if(newConsumers) {
-			console.log(newEmail + " уже существует", newConsumers)
-			res.status(400).send(`${newEmail} уже существует`)
-		}
-		if(!newConsumers) {
-			consumers.push(consumer[0])
-			console.log(newEmail + " не существует")
-			res.status(201).send(`${newEmail}  не существует  ${newConsumers}`)
-		}
-	}
 })
 
 // Новый сотрудник
