@@ -60,10 +60,13 @@ app.get('/main', (req, res) => {
 	// res.send(personal);
 })
 
+// html для регистрации
 app.get('/innerUser', (req, res) =>{
 	res.sendFile(__dirname + '/html/innerUser.html')
 })
 
+
+// html для входа
 app.get('/entryUser', (req, res) =>{
 	res.sendFile(__dirname + '/html/entryUser.html')
 })
@@ -79,10 +82,10 @@ app.get("/innerUserScript", (req, res)=>{
 })
 
 // вход пользователя
-
 app.get("/entryUserScript", (req, res) =>{
 	res.sendFile(__dirname + '/resSendScript/entryUserScript.js')
 })
+
 // Количество сотрудников
 app.get('/countPersonals', (req, res)=>{
 	countPersonals(req, res, personal)
@@ -91,6 +94,29 @@ app.get('/countPersonals', (req, res)=>{
 // отправить аватарку
 app.get('/avatar/:name' , (req, res)=>{
 	getPhotoUser(req, res, avatar(req.params.name))
+})
+
+// поверка учетной записи в базе
+app.post("/verificationAccount", (req, res) =>{
+	function verificationAccount(req, res, consumers) {
+		let consumer = consumers.some((item)=>{
+			if(item.user.firstName == req.body.name ) {
+				if(Number(item.user.password) === Number(req.body.password)) {
+					console.log("consumer", true)
+					return true
+				}
+			}
+		})
+		console.log(consumer)
+		if(consumer) {
+			res.status(200).send("Добро пожаловать ")
+			return
+		}
+		if(!consumer) {
+			res.status(400).send("Попробуйте еще раз!")
+			return
+		}
+	}verificationAccount(req, res, consumers)
 })
 
 // прием нового ползователя JSON

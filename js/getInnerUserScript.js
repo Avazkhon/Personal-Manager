@@ -1,4 +1,4 @@
-module.exports = function getInnerUserScript(req, res, consumers ) {
+module.exports = function getInnerUserScript(req, res, consumers) {
 		let consumer = req.body;
 
 		let newEmail = consumers.map((item)=>{
@@ -6,14 +6,16 @@ module.exports = function getInnerUserScript(req, res, consumers ) {
 		})
 		// вернуть истину если нашел
 		let newConsumers = consumers.some(getEmail=>{
-			if(getEmail.email == consumer[0].email){
+			console.log(getEmail.user.email , consumer[0].email)
+			if(getEmail.user.email == consumer[0].email){
+
 				return true
 			}
+			else return false
 		})
 
 		if(newConsumers) {
-			console.log(newEmail + " уже существует", newConsumers)
-			res.status(400).send(`${consumer[0].email} уже существует`)
+			res.status(400).send(`Вы регистрировались рание?`)
 		}
 		if(!newConsumers) {
 			consumers.push({
@@ -22,8 +24,8 @@ module.exports = function getInnerUserScript(req, res, consumers ) {
 				photo: ["images.jpg"],
 				kay: getkay()
 			})
-			console.log(consumer[0] + " не существует")
-			res.status(201).send(`${consumer[0].email}  не существует`)
+			
+			res.status(201).send("Добро пожаловать!")
 		}
 
 		function getkay() {

@@ -44,9 +44,11 @@ function innerUserScript() {
 		xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
 		xhr.onreadystatechange = ()=>{
 			if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 201){
+				entryUser()
 				console.log(xhr.response)
 			}
 			if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 400){
+				document.getElementById('errorSend').innerText =  xhr.response
 				console.log(xhr.response)
 			}
 		}
