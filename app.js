@@ -64,16 +64,25 @@ app.get('/innerUser', (req, res) =>{
 	res.sendFile(__dirname + '/html/innerUser.html')
 })
 
+app.get('/entryUser', (req, res) =>{
+	res.sendFile(__dirname + '/html/entryUser.html')
+})
+
 // Список сотрудников JSON
 app.get('/personal', (req, res)=> {
 	res.send(personal);
 })
 
-// регистрация пользователя
+// регистрация пользователя res.script
 app.get("/innerUserScript", (req, res)=>{
 	res.sendFile(__dirname + '/resSendScript/innerUserScript.js')
 })
 
+// вход пользователя
+
+app.get("/entryUserScript", (req, res) =>{
+	res.sendFile(__dirname + '/resSendScript/entryUserScript.js')
+})
 // Количество сотрудников
 app.get('/countPersonals', (req, res)=>{
 	countPersonals(req, res, personal)
@@ -86,7 +95,6 @@ app.get('/avatar/:name' , (req, res)=>{
 
 // прием нового ползователя JSON
 app.post("/innerUserScript", (req, res)=>{
-
 	getInnerUserScript(req, res, consumers)
 })
 

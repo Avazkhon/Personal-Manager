@@ -4,3 +4,12 @@
 	grid-row-gap: 5px;
 	margin: 100px auto;
 	width: 350px;
+}
+
+.entryUSer{
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-row-gap: 5px;
+	margin: 100px auto;
+	width: 350px;
+}
