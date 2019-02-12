@@ -7,17 +7,18 @@ function innerUserScript() {
 	let obj = [
 		{firstName, lastName, password, email}
 	]
-
+	// роверка на длинну пароля
 	function nimPassword(ifValue) {
-		if (ifValue.length <= 6) {
+		if (ifValue.length <= 5) {
 			document.getElementById("password").innerText = "Минимальноя длинна 6 цифр";
 			return ifValue
 		}
-		if (ifValue.length >= 6) {
+		if (ifValue.length > 5) {
 			document.getElementById("password").innerText = "";
 			return ifValue
 		}
 	}
+	//проверка да ввод данных
 	function dontUndefined(value, id) {
 		if(value === "" ) {
 			document.getElementById(id).innerText = "Ввидите "+ id;
@@ -29,7 +30,8 @@ function innerUserScript() {
 		}
 	}
 
-	if(firstName !== "" && lastName !== ""  && email !== "" ) {
+	// если ввиденные данные соотвествуют требованием 
+	if(firstName !== "" && lastName !== ""  && email !== "" && password.length > 5) {
 		resInnerUser(obj)
 	}
 

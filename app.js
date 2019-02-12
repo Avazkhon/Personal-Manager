@@ -11,6 +11,9 @@ const getPhotoUser = require('./js/getPhotoUser')
 const correctiveUser = require('./js/correctiveUser')
 
 //Типа BD
+let consumers = [
+	{firstName: "Avazkhon", lastName: "Kamalkhanov", password: 123123, email: "kamalxanovavazxon@gmail.com"}
+];
 const personal = require('./db/personals');
 const archive = require('./db/archive');
 let avatar = function (namePhoto) {
@@ -78,8 +81,32 @@ app.get('/avatar/:name' , (req, res)=>{
 
 // прием нового ползователя JSON
 app.post("/innerUserScript", (req, res)=>{
-	console.log(req.body)
-	res.sendStatus(201)
+
+	getInnerUserScript(req, res, consumers)
+
+	function getInnerUserScript(req, res, consumers ) {
+		let consumer = req.body;
+
+		let newEmail = consumers.map((item)=>{
+			return item.email;
+		})
+		// вернуть истину если нашел
+		let newConsumers = consumers.some(getEmail=>{
+			if(getEmail.email == consumer[0].email){
+				return true
+			}
+		})
+
+		if(newConsumers) {
+			console.log(newEmail + " уже существует", newConsumers)
+			res.status(400).send(`${newEmail} уже существует`)
+		}
+		if(!newConsumers) {
+			consumers.push(consumer[0])
+			console.log(newEmail + " не существует")
+			res.status(201).send(`${newEmail}  не существует  ${newConsumers}`)
+		}
+	}
 })
 
 // Новый сотрудник
