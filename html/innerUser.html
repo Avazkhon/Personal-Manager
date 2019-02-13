@@ -1,21 +1,21 @@
 <form class="newUser" name="innerUser">
 	<div id="errorSend"></div>
 	<div>
-		<input type="text" name="firstName"  placeholder="Ввидите имя" value="">
+		<input type="text" name="firstName" class="btn" placeholder="Ввидите имя" value="">
 		<div id="firstName"></div><br>
-		<input type="text" name="lastName"  placeholder="Ввидите фамилию">
+		<input type="text" name="lastName" class="btn"  placeholder="Ввидите фамилию">
 		<div id="lastName"></div><br>
 	</div>
 	<div>
-		<input type="password" name="password" autocomplete="off" placeholder="Ввидите пароль">
+		<input type="password" name="password" class="btn" autocomplete="off" placeholder="Ввидите пароль">
 		<div id="password"></div><br>
 	</div>
 	<div>
-		<input type="email" name="email" placeholder="Ввидите email">
+		<input type="email" name="email" class="btn" placeholder="Ввидите email">
 		<div id="email"></div><br>
 	</div>
 	<div>
 		<input type="button" onclick="innerUserScript()" class="btn" name="" value="Зарегистрироваться">
+		<input type="button" onclick="entryUser()" class="btn" name="" value="Войти">
 	</div>
-	<div onclick="entryUser()">Войти</div>
 </form>
