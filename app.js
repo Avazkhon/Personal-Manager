@@ -99,9 +99,11 @@ app.get('/avatar/:name' , (req, res)=>{
 // поверка учетной записи в базе
 app.post("/verificationAccount", (req, res) =>{
 	function verificationAccount(req, res, consumers) {
+		let resConsumer;
 		let consumer = consumers.some((item)=>{
 			if(item.user.firstName == req.body.name ) {
 				if(Number(item.user.password) === Number(req.body.password)) {
+					resConsumer = item.user
 					console.log("consumer", true)
 					return true
 				}
@@ -109,7 +111,7 @@ app.post("/verificationAccount", (req, res) =>{
 		})
 		console.log(consumer)
 		if(consumer) {
-			res.status(200).send("Добро пожаловать ")
+			res.status(200).send(resConsumer)
 			return
 		}
 		if(!consumer) {

@@ -1,11 +1,27 @@
-let statusConsumerOnline = false;
+let consumer =  JSON.parse(localStorage.getItem('consumer'))
+function entrublock(consumer) {
+	let inputEntry = `<input type="button" name="" class="btn" value="Зарегистрироваться/ войти" onclick="innerUSer()">`;
+	let inputOut = `<input type="button" id="statusConsumerOnline" name="" class="btn" value="Выйти" onclick="entryUser()">`;
+	let firstName = consumer === null ? "Пользователь не определен" : consumer.firstName;
+	let input = consumer === null 
+	let innerUSer = document.getElementById("innerUSer");
+	let block = `<div id="helloName">${firstName}</div>
+					<div id="statusConsumerOnline">
+					${consumer === null ? inputEntry : inputOut}
+				</div>`;
+	innerUSer.innerHTML = block;
+	console.log(consumer)
+}
+entrublock(consumer)
+
 function entryUser() {
-	if(statusConsumerOnline) {
+	if(consumer) {
+		localStorage.setItem('consumer', null)
 		document.getElementById("statusConsumerOnline").innerHTML = `<input type="button" name="" class="btn" value="Зарегистрироваться/ войти" onclick="innerUSer()">`;
 		document.getElementById("helloName").innerText = "Пользователь не определен";
-		statusConsumerOnline = false;
 	}
-	if(!statusConsumerOnline) {
+
+	if(!consumer) {
 		let xhr = new XMLHttpRequest();
 			let url = "http://localhost:2019/entryUser";
 
@@ -27,6 +43,7 @@ function verificationAccount() {
 		name: obj.name.value,
 		password: obj.password.value
 	})
+
 	console.log(body )
 	xhr.open("POST", url, )
 
@@ -34,8 +51,9 @@ function verificationAccount() {
 
 	xhr.onreadystatechange = ()=>{
 		if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
-			statusConsumerOnline = true;
-			document.getElementById("helloName").innerText = xhr.response + obj.name.value;
+			localStorage.setItem("consumer", xhr.response)
+			console.log(xhr.response)
+			document.getElementById("helloName").innerText = obj.name.value;
 			document.getElementById("content").innerText = "";
 			document.getElementById("statusConsumerOnline").innerHTML = `<input type="button" id="statusConsumerOnline" name="" class="btn" value="Выйти" onclick="entryUser()">`;
 		}
