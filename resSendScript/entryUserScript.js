@@ -6,12 +6,12 @@ function entrublock(consumer) {
 	let inputEntry = `<input type="button" name="" class="btn" value="Зарегистрироваться/ войти" onclick="innerUSer()">`;
 	let inputOut = `<input type="button" id="statusConsumerOnline" name="" class="btn" value="Выйти" onclick="entryUser()">`;
 	let firstName = consumer === null ? "Пользователь не определен" : consumer.firstName;
-	let innerUSer = document.getElementById("innerUSer");
+	let innerUser = document.getElementById("innerUser");
 	let block = `<div id="helloName">${firstName}</div>
 					<div id="statusConsumerOnline">
 					${consumer === null ? inputEntry : inputOut}
 				</div>`;
-	innerUSer.innerHTML = block;
+	innerUser.innerHTML = block;
 	if(consumer !== null) {
 		inputKayConsumer(kayConsumer)
 	}
@@ -28,19 +28,12 @@ function inputKayConsumer(kayConsumer) {
 }
 
 function postKayConsumer() {
-
 	let kay = document.getElementById("getKay")
 	console.log(kay.value)
 	content.innerHTML = "";
 }
 
 function entryUser() {
-
-	if(consumer !== null) {
-		localStorage.setItem('consumer', "null")
-		document.getElementById("statusConsumerOnline").innerHTML = `<input type="button" name="" class="btn" value="Зарегистрироваться/ войти" onclick="innerUSer()">`;
-		document.getElementById("helloName").innerText = "Пользователь не определен";
-	}
 
 	if(consumer === null) {
 		let xhr = new XMLHttpRequest();
@@ -54,6 +47,9 @@ function entryUser() {
 		}
 		xhr.send()
 	}
+		localStorage.setItem('consumer', "null")
+		document.getElementById("statusConsumerOnline").innerHTML = `<input type="button" name="" class="btn" value="Зарегистрироваться/ войти" onclick="innerUSer()">`;
+		document.getElementById("helloName").innerText = "Пользователь не определен";
 
 	console.log(consumer)
 }
@@ -64,7 +60,8 @@ function verificationAccount() {
 	let url = "http://localhost:2019/verificationAccount";
 	let body = JSON.stringify({
 		name: obj.name.value,
-		password: obj.password.value
+		password: obj.password.value,
+		email: obj.email.value
 	})
 
 	xhr.open("POST", url, )
