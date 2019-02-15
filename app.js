@@ -109,7 +109,7 @@ app.post("/verificationAccount", (req, res) =>{
 				}
 			}
 		})
-		console.log(consumer)
+		console.log(resConsumer)
 		if(consumer) {
 			res.status(200).send(resConsumer)
 			return
