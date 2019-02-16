@@ -1,5 +1,5 @@
 let consumer =  JSON.parse(localStorage.getItem('consumer'))
-let kayConsumer =  JSON.parse(localStorage.getItem('kayConsumer'))
+let kayConsumer = localStorage.getItem('kayConsumer')
 let content = document.getElementById("content")
 
 function entrublock(consumer) {
@@ -23,13 +23,20 @@ function inputKayConsumer(kayConsumer) {
 		<input type="text" name="getKay" id="getKay" class="btn">
 		<input type="button" class="btn" onclick="postKayConsumer()" value="Отправить">
 	</form>`;
+	
+	if(kayConsumer === null) {
+		content.innerHTML = getKay;
+	}
 
-	content.innerHTML = getKay;
 }
 
 function postKayConsumer() {
 	let kay = document.getElementById("getKay")
-	console.log(kay.value)
+	if(kayConsumer === null) {
+	  localStorage.setItem("kayConsumer", kay.value)
+	  console.log(kay.value)
+	  content.innerHTML = "";
+	}
 	content.innerHTML = "";
 }
 

@@ -45,7 +45,7 @@ function innerUserScript() {
 		xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
 		xhr.onreadystatechange = ()=>{
 			if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 201){
-				entryUser()
+				entryUser() // находится в entryUserscript
 				console.log(xhr.response)
 			}
 			if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 400){
