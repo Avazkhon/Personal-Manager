@@ -59,7 +59,7 @@ function verificationAccount() {
 	let xhr = new XMLHttpRequest();
 	let url = "http://localhost:2019/verificationAccount";
 	let body = JSON.stringify({
-		name: obj.name.value,
+		nameCompany: obj.nameCompany.value,
 		password: obj.password.value,
 		email: obj.email.value
 	})

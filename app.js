@@ -101,7 +101,8 @@ app.post("/verificationAccount", (req, res) =>{
 	function verificationAccount(req, res, consumers) {
 		let resConsumer;
 		let consumer = consumers.some((item)=>{
-			if(item.user.firstName == req.body.name ) {
+			console.log(item.user.nameCompany,  req.body.nameCompany)
+			if(item.user.nameCompany == req.body.nameCompany ) {
 				if(Number(item.user.password) === Number(req.body.password)) {
 					console.log(item.user.email,  req.body.email)
 					if(item.user.email == req.body.email) {

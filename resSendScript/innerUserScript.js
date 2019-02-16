@@ -1,11 +1,12 @@
 function innerUserScript() {
+	let nameCompany = document.innerUser.nameCompany.value !== "" ? dontUndefined(document.innerUser.nameCompany.value, "nameCompany") : dontUndefined(document.innerUser.nameCompany.value, "nameCompany") ;
 	let firstName = document.innerUser.firstName.value !== "" ? dontUndefined(document.innerUser.firstName.value, "firstName") : dontUndefined(document.innerUser.firstName.value, "firstName") ;
 	let lastName = document.innerUser.lastName.value !== "" ? dontUndefined(document.innerUser.lastName.value, "lastName") : dontUndefined(document.innerUser.lastName.value, "lastName") ;
 	let password = document.innerUser.password.value.length >= 6 ? nimPassword(document.innerUser.password.value) : nimPassword(document.innerUser.password.value);
 	let email = document.innerUser.email.value !== "" ? dontUndefined(document.innerUser.email.value, "email") : dontUndefined(document.innerUser.email.value, "email") ;
 
 	let obj = [
-		{firstName, lastName, password, email}
+		{nameCompany , firstName, lastName, password, email}
 	]
 	// роверка на длинну пароля
 	function nimPassword(ifValue) {
@@ -31,7 +32,7 @@ function innerUserScript() {
 	}
 
 	// если ввиденные данные соотвествуют требованием 
-	if(firstName !== "" && lastName !== ""  && email !== "" && password.length > 5) {
+	if(nameCompany !== "" && firstName !== "" && lastName !== ""  && email !== "" && password.length > 5) {
 		resInnerUser(obj)
 	}
 
