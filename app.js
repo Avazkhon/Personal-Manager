@@ -13,10 +13,23 @@ const getInnerUserScript = require('./js/getInnerUserScript')
 
 //Типа BD
 let consumers = [
-	{id: 123,
-	user: {firstName: "Avazkhon", lastName: "Kamalkhanov", password: 123123, email: "kamalxanovavazxon@gmail.com"},
-	photo: ["images.jpg"],
-	kay: null
+	{ id: 123,
+	 user: {
+ 	  nameCompany: 'PM',
+ 	  firstName: "Avazkhon",
+	  lastName: "Kamalkhanov",
+	  password: 123123,
+	  email: "kamalxanovavazxon@gmail.com"
+	 },
+	 photo: ["images.jpg"],
+	 kay: {
+	  kay: "t2QiWinVdjGgJ3BC",
+ 	  kaystatus: false
+	 },
+	 comapany: {
+	 	name: "PM",
+	 	BD: "",
+	 }
 	}
 ];
 const personal = require('./db/personals');
@@ -96,8 +109,14 @@ app.get('/avatar/:name' , (req, res)=>{
 	getPhotoUser(req, res, avatar(req.params.name))
 })
 
+app.post("/kayConsumer", (req, res) =>{
+	res.send(req.body)
+	console.log(req.body)
+})
+
 // поверка учетной записи в базе
 app.post("/verificationAccount", (req, res) =>{
+
 	function verificationAccount(req, res, consumers) {
 		let resConsumer;
 		let consumer = consumers.some((item)=>{
@@ -106,13 +125,14 @@ app.post("/verificationAccount", (req, res) =>{
 				if(Number(item.user.password) === Number(req.body.password)) {
 					console.log(item.user.email,  req.body.email)
 					if(item.user.email == req.body.email) {
-						resConsumer = item.user
+						resConsumer = item.user;
 						console.log("consumer", true)
 						return true
 					}
 				}
 			}
 		})
+
 		console.log(resConsumer)
 		if(consumer) {
 			res.status(200).send(resConsumer)

@@ -2,7 +2,7 @@ let consumer =  JSON.parse(localStorage.getItem('consumer'))
 let kayConsumer = localStorage.getItem('kayConsumer')
 let content = document.getElementById("content")
 
-function entrublock(consumer) {
+function entryblock(consumer) {
 	let inputEntry = `<input type="button" name="" class="btn" value="Зарегистрироваться/ войти" onclick="innerUSer()">`;
 	let inputOut = `<input type="button" id="statusConsumerOnline" name="" class="btn" value="Выйти" onclick="entryUser()">`;
 	let firstName = consumer === null ? "Пользователь не определен" : consumer.firstName;
@@ -12,10 +12,7 @@ function entrublock(consumer) {
 					${consumer === null ? inputEntry : inputOut}
 				</div>`;
 	innerUser.innerHTML = block;
-	if(consumer !== null) {
-		inputKayConsumer(kayConsumer)
-	}
-}entrublock(consumer)
+}entryblock(consumer)
 
 function inputKayConsumer(kayConsumer) {
 	let getKay = `<form name="getKayConsumer" class="getKayConsumer">
@@ -24,7 +21,7 @@ function inputKayConsumer(kayConsumer) {
 		<input type="button" class="btn" onclick="postKayConsumer()" value="Отправить">
 	</form>`;
 	
-	if(kayConsumer === null) {
+	if(kayConsumer === 'null') {
 		content.innerHTML = getKay;
 	}
 
@@ -32,13 +29,30 @@ function inputKayConsumer(kayConsumer) {
 
 function postKayConsumer() {
 	let kay = document.getElementById("getKay")
-	if(kayConsumer === null) {
-	  localStorage.setItem("kayConsumer", kay.value)
-	  console.log(kay.value)
-	  content.innerHTML = "";
+	if(kayConsumer === 'null') {
+		post()
 	}
 	content.innerHTML = "";
+
+	function post() {
+		let xhr = new XMLHttpRequest;
+		let url = "http://localhost:2019/kayConsumer";
+		let body = kay.value;
+		console.log(kay.value)
+
+		xhr.open("POST", url, )
+		xhr.onreadystatechange = () =>{
+			if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
+			  localStorage.setItem("kayConsumer", xhr.response)
+			  content.innerHTML = "";
+			}
+		}
+
+		xhr.send(body)
+	}
+
 }
+
 
 function entryUser() {
 
@@ -50,11 +64,13 @@ function entryUser() {
 		xhr.onreadystatechange = ()=>{
 			if(xhr.readyState === XMLHttpRequest.DONE){
 				document.getElementById("content").innerHTML = xhr.response;
+				localStorage.setItem("kayConsumer", 'null')
 			}
 		}
 		xhr.send()
 	}
-		localStorage.setItem('consumer', "null")
+		localStorage.setItem('consumer', null)
+		localStorage.setItem("kayConsumer", 'null')
 		document.getElementById("statusConsumerOnline").innerHTML = `<input type="button" name="" class="btn" value="Зарегистрироваться/ войти" onclick="innerUSer()">`;
 		document.getElementById("helloName").innerText = "Пользователь не определен";
 
@@ -77,13 +93,9 @@ function verificationAccount() {
 
 	xhr.onreadystatechange = ()=>{
 		if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
-			console.log( xhr.response)
 			localStorage.setItem("consumer", xhr.response)
-			document.getElementById("helloName").innerText = obj.name.value;
-			document.getElementById("statusConsumerOnline").innerHTML = `<input type="button" id="statusConsumerOnline" name="" class="btn" value="Выйти" onclick="entryUser()">`;
-			if(kayConsumer === null) {
-				inputKayConsumer(kayConsumer)
-			}
+			entryblock(consumer)
+			inputKayConsumer(kayConsumer)
 		}
 		if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 400){
 			document.getElementById("errorEntry").innerText = xhr.response;

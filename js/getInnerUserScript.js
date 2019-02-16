@@ -25,7 +25,7 @@ module.exports = function getInnerUserScript(req, res, consumers) {
 				kay: getkay()
 			})
 			
-			res.status(201).send("Добро пожаловать!")
+			res.status(201).send("Зарегистрирован новый пользователь!")
 		}
 
 		function getkay() {
