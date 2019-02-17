@@ -37,10 +37,13 @@ function postKayConsumer() {
 	function post() {
 		let xhr = new XMLHttpRequest;
 		let url = "http://localhost:2019/kayConsumer";
-		let body = kay.value;
+		let body = JSON.stringify({
+			kay: kay.value
+		})
 		console.log(kay.value)
 
 		xhr.open("POST", url, )
+		xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
 		xhr.onreadystatechange = () =>{
 			if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
 			  localStorage.setItem("kayConsumer", xhr.response)

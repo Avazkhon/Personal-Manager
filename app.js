@@ -27,7 +27,7 @@ let consumers = [
  	  kaystatus: false
 	 },
 	 comapany: {
-	 	name: "PM",
+	 	comapanyName: "PM",
 	 	BD: "",
 	 }
 	}
@@ -110,8 +110,15 @@ app.get('/avatar/:name' , (req, res)=>{
 })
 
 app.post("/kayConsumer", (req, res) =>{
-	res.send(req.body)
-	console.log(req.body)
+	kayConsumer(req, res, consumers)
+	function kayConsumer(req, res, consumers) {
+	 consumers.map((consumer)=>{
+	  if(consumer.kay.kay == req.body.kay) {
+	  	res.send(consumer.kay.kay)
+	  	console.log(consumer.comapany.comapanyName, "ввел ключ активации")
+	  }
+	 })
+	}
 })
 
 // поверка учетной записи в базе
