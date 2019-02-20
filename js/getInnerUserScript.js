@@ -1,12 +1,13 @@
+// создания нового пользователя
 module.exports = function getInnerUserScript(req, res, consumers) {
 		let consumer = req.body;
+		let nameBD = [consumer[0].nameCompany]
 
 		let newEmail = consumers.map((item)=>{
 			return item.user.email;
 		})
 		// вернуть истину если нашел
 		let newConsumers = consumers.some(getEmail=>{
-			console.log(getEmail.user.email , consumer[0].email)
 			if(getEmail.user.email == consumer[0].email){
 
 				return true
@@ -22,7 +23,14 @@ module.exports = function getInnerUserScript(req, res, consumers) {
 				id: new Date(),
 				user: consumer[0],
 				photo: ["images.jpg"],
-				kay: getkay()
+				kay: {
+				  kay: getkay(),
+				  kayStstus: false
+				},
+				company: {
+					nameCompany: consumer[0].nameCompany,
+					BD: nameBD.join()+"BD",
+				}
 			})
 			
 			res.status(201).send("Зарегистрирован новый пользователь!")

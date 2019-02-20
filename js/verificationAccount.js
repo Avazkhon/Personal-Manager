@@ -11,6 +11,7 @@ module.exports = function verificationAccount(req, res, consumers) {
 
 						resConsumer = item.user;
 						resConsumer.kay = item.kay.kayStatus;
+						console.log(resConsumer)
 						return true
 					}
 				}
