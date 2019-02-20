@@ -14,26 +14,8 @@ const kayConsumer = require('./js/kayConsumer')
 const verificationAccount = require('./js/verificationAccount')
 
 //Типа BD
-let consumers = [
-	{ id: 123,
-	 user: {
- 	  nameCompany: 'PM',
- 	  firstName: "Avazkhon",
-	  lastName: "Kamalkhanov",
-	  password: 123123,
-	  email: "kamalxanovavazxon@gmail.com"
-	 },
-	 photo: ["images.jpg"],
-	 kay: {
-	  kay: "t2QiWinVdjGgJ3BC",
- 	  kayStatus: false
-	 },
-	 comapany: {
-	 	comapanyName: "PM",
-	 	BD: "",
-	 }
-	}
-];
+
+const consumers = require('./db/consumers/consumers')
 const personal = require('./db/personals');
 const archive = require('./db/archive');
 let avatar = function (namePhoto) {
