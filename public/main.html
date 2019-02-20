@@ -5,6 +5,9 @@
 	<title>Главное</title>
 	<link rel="stylesheet" type="text/css" href="style/style.css">
 	<link rel="stylesheet" type="text/css" href="style/innerUSer.css">
+	<link rel="stylesheet" type="text/css" href="style/form.css">
+	<link rel="stylesheet" type="text/css" href="style/personalLIst.css">
+	<link rel="stylesheet" type="text/css" href="style/reports.css">
 </head>
 <body>
 	<div class="conteiner">
@@ -17,19 +20,13 @@
 						</a>
 					</div>
 					<div>
-						<a href="reports.html">
-							<input class='btn' type="button" value="отчеты">
-						</a>
+						<input class='btn' type="button" onclick="reportsList()" value="отчеты">
 					</div>
 					<div>
-						<a href="form.html">
-							<input class='btn' type="button" value="Новый сотрудник">
-						</a>
+						<input class='btn' type="button" onclick="formList()" value="Новый сотрудник">
 					</div>
 					<div>
-						<a href="personalLIst.html">
-							<input class='btn' type="submit" value="Список сотрудников">
-						</a>
+						<input class='btn' type="button" onclick="personalLIst()" value="Список сотрудников">
 					</div>
 				</div>
 				<div></div>
@@ -44,7 +41,12 @@
 		<div class="footer">footer</div>
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script type="text/javascript" src='JavaScript/main.js' def></script>
+
+	<script type="text/javascript" src='JavaScript/main.js' ></script>
+	<script type="text/javascript" src='JavaScript/form.js' ></script>
+	<script type="text/javascript" src='JavaScript/personalList.js'></script>
+	<script type="text/javascript" src='JavaScript/reports.js' ></script>
+
 	<script type="text/javascript" src='http://localhost:2019/innerUserScript' ></script>
 	<script type="text/javascript" src='http://localhost:2019/entryUserScript' ></script>
 </body>

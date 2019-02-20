@@ -1,18 +1,4 @@
 
-// получить от сервера date по умолчанию при загрузки
-document.addEventListener('DOMContentLoaded', ()=>{
-	const url = "http://localhost:2019/main";
-	const xhr = new XMLHttpRequest();
-	xhr.open('GET', url, )
-	xhr.onreadystatechange =()=>{
-		if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
-			console.log(xhr.responseText)
-			reports()
-		}
-	}
-	xhr.send()
-})
-
 //вывод report
 function reports () {
 	let reports = document.getElementById("reports");
@@ -118,7 +104,8 @@ function getCanvas(personal) {
 	}
 }
 
-document.getElementById("countPersonal").onclick = function() {
+// document.getElementById("countPersonal").onclick = 
+function countPersonal() {
 	const reports = document.getElementById("reports");
 	const url = "http://localhost:2019/countPersonals";
 	const xhr = new XMLHttpRequest();

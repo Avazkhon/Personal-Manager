@@ -1,0 +1,86 @@
+
+<form id='newUser'
+	  method='post'
+	  action='http://localhost:2019/form.html'
+	  encType="multipart/form-data">
+	<div id="formInner">
+		<div class="name">
+				<label for='firstName'>Имя</label>
+			<input id="firstName" class="inputNewUser" type="text" name="firstName">
+				<label for='lastName'>Фамилия</label>
+			<input id="lastName" class="inputNewUser" type="text" name="lastName">
+				<label for='familyName'>Очество</label>
+			<input id="familyName" class="inputNewUser" type="text" name="familyName">
+				<label for='age'>Год рождения</label>
+			<input id="age" class="inputNewUser" type="number" name="age">
+				<label for='passUmber'>Номер, серия паспорта.</label>
+			<input id="passUmber" class="inputNewUser" type="number" name="passNumber">
+		</div>
+		<div class="profession">
+			<label for="profession">Профессия</label>
+			<input id="profession" class="inputNewUser" type="text" name="profession">
+				<select id="education" required name="education">
+						<option dizabled>Выберите учреждение</option>
+						<option value="school" >Школа</option>
+						<option value="college" >Колледж</option>
+						<option value="technical college" >Техникум</option>
+						<option value="instetut" >Институт</option>
+				</select>
+			<div class="institution ">
+				<label for="institutionName">Название учерждения</label>
+				<input id="institutionName" type="text" name="institutionName">
+			</div>
+		</div>
+		<div class="positionPersonal">
+				<label for="position">Должность</label>
+			<input id="position" class="inputNewUser" type="text" name="position">
+				<label for="wage">Заработная плата</label>
+			<input id="wage" class="inputNewUser" type="number" name="wage">
+			<P>
+				<select id="subdivision" required name="subdivision">
+					<option dizabled>Выберите направления</option>
+					<option value="frontend">Front end</option>
+					<option value="backend">Back end</option>
+				</select>
+			</P>
+			<p>
+				<select id="lavel" required name="lavel">
+					<option dizabled>Выберите уровень</option>
+					<option value="Junior">Junior</option>
+					<option value="Middle">Middle</option>
+					<option value="Senior">Senior</option>
+				</select>
+			</p>
+		</div>
+		<div class="scils">
+				<label for="clil">Новый навык</label>
+			<input id="scil"  type="text" value="">
+			<input class="btn" type="button" onclick="newScils()" value="Добавить навык">
+			<ul id='listScils'>
+				
+			</ul>
+		</div>
+		<div class="programmingLanguages">
+				<label for="newLanguages">Новый язык</label>
+			<input id="newLanguages" type="text">
+			<input class="btn" type="button" onclick="Languages()" value="Добавить язык">
+			<ul id="listLangulares">
+				
+			</ul>
+		</div>
+		<div class="contact">
+				<label for="numberPhon">Номер телефона</label>
+			<input type="number" id="numberPhon" name="numberPhon">
+				<label for="mail">эл. Почта</label>
+			<input type="text" id="mail" name="mail">
+				<label for="homeAddress">Домашний адрес</label>
+			<input type="text" id="homeAddress" name="homeAddress">
+		</div>
+		<div class="photo">
+			<p><input type="file" name="foo" multiple accept="image/*,image/jpeg">
+		</div>
+	</div>
+	<div>
+		<input id="newPersonal" class="btn" type="submit" value="Добавить сотрудника">
+	</div>
+</form>

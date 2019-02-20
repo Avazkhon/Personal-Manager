@@ -24,7 +24,6 @@ let avatar = function (namePhoto) {
 				}
 				return (__dirname+`/db/photo/${namePhoto}`)
 			}
-
 const app = express();
 
 app.use(fileUpload());
@@ -41,13 +40,21 @@ app.get('/', (req, res) => {
 	res.sendFile(__dirname + '/public/main.html');
 });
 
+app.get('/form.html', (req, res) => {
+	res.sendFile(__dirname + '/htmlList/form.html');
+	res.status(200)
+})
+
+
 app.get('/reports.html', (req, res) => {
-	res.sendFile(__dirname + '/public/reports.html');
+	res.sendFile(__dirname + '/htmlList/reports.html');
+	res.status(200)
 })
 
 // Список сотрудников
 app.get('/personalLIst.html', (req, res) => {
-	res.sendFile(__dirname + '/public/personalLIst.html');
+	res.sendFile(__dirname + '/htmlList/personalLIst.html');
+	res.status(200)
 	// res.send(personal);
 })
 

@@ -2,18 +2,16 @@ let personals;
 let correctUser;
 let idUser;
 // вывод перонала
-$(document).ready(()=> {
-  $("#listOfEmployees").on("click", (personal) => {
-    $.get(
-        "http://localhost:2019/personal",
-        (personal)=> {
-          personals = personal;
+function listPersonal() {
+  $.get(
+    "http://localhost:2019/personal",
+    (personal)=> {
+      personals = personal;
 
-         person(personals);
-        }
-      )
-  })
-})
+     person(personals);
+    }
+  )
+}
 
 // шаблон для вывода персонала (лист)
 function person(user){
