@@ -24,7 +24,7 @@ let consumers = [
 	 photo: ["images.jpg"],
 	 kay: {
 	  kay: "t2QiWinVdjGgJ3BC",
- 	  kaystatus: false
+ 	  kayStatus: false
 	 },
 	 comapany: {
 	 	comapanyName: "PM",
@@ -114,6 +114,13 @@ app.post("/kayConsumer", (req, res) =>{
 	function kayConsumer(req, res, consumers) {
 	 consumers.map((consumer)=>{
 	  if(consumer.kay.kay == req.body.kay) {
+	  	let id = consumer.id
+	  	for(let i = 0 ; i < consumers.length ; i++) {
+	  		if(consumers[i].id === id) {
+	  			consumers[i].kay.kayStatus = true;
+	  			console.log(consumers[i].kay.kayStatus = true)
+	  		}
+	  	}
 	  	res.send(consumer.kay.kay)
 	  	console.log(consumer.comapany.comapanyName, "ввел ключ активации")
 	  }
@@ -127,13 +134,16 @@ app.post("/verificationAccount", (req, res) =>{
 	function verificationAccount(req, res, consumers) {
 		let resConsumer;
 		let consumer = consumers.some((item)=>{
-			console.log(item.user.nameCompany,  req.body.nameCompany)
 			if(item.user.nameCompany == req.body.nameCompany ) {
 				if(Number(item.user.password) === Number(req.body.password)) {
-					console.log(item.user.email,  req.body.email)
 					if(item.user.email == req.body.email) {
+						if(item.kay.kaystatus) {
+						  resConsumer = item.user;
+						  return true
+						}
+
 						resConsumer = item.user;
-						console.log("consumer", true)
+						resConsumer.kay = item.kay.kayStatus;
 						return true
 					}
 				}

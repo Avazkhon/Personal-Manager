@@ -12,6 +12,7 @@ function entryblock(consumer) {
 					${consumer === null ? inputEntry : inputOut}
 				</div>`;
 	innerUser.innerHTML = block;
+	content.innerHTML = "";
 }entryblock(consumer)
 
 function inputKayConsumer(kayConsumer) {
@@ -95,10 +96,14 @@ function verificationAccount() {
 	xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
 
 	xhr.onreadystatechange = ()=>{
+		let kay;
 		if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
+			kay = JSON.parse(xhr.response);
 			localStorage.setItem("consumer", xhr.response)
 			entryblock(consumer)
-			inputKayConsumer(kayConsumer)
+			if(!kay.kay) {
+				inputKayConsumer(kayConsumer)
+			}
 		}
 		if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 400){
 			document.getElementById("errorEntry").innerText = xhr.response;
