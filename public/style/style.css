@@ -1,5 +1,6 @@
 .conteiner {
 	width: 100%;
+	min-width: 640px;
 }
 li, button {
 	list-style-type: none;
@@ -9,7 +10,7 @@ li, button {
 	position: relative;
 	background-color: DarkGrey;
 	width: 100%;
-	height: 100px;
+	height: 150px;
 	border: 1px solid;
 	border-radius: 20px;
 	box-shadow: 0 0 10px rgba(0,0,0,5);
@@ -26,6 +27,15 @@ li, button {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
 	grid-column-gap: 10px;
+}
+
+#consumerTools{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-column-gap: 10px;
+	width: 300px;
+	height: 50px;
+	margin: 20px;
 }
 
 #innerUSer{
