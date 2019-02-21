@@ -15,6 +15,23 @@ function entryblock(consumer) {
 	content.innerHTML = "";
 }entryblock(consumer)
 
+function consumerTools () {
+
+	let consumerTools = document.getElementById("consumerTools")
+	let tools = `<div>
+				<input class='btn' type="button" onclick="reportsList()" value="отчеты">
+			</div>
+			<div>
+				<input class='btn' type="button" onclick="formList()" value="Новый сотрудник">
+			</div>
+			<div>
+				<input class='btn' type="button" onclick="personalLIst()" value="Список сотрудников">
+			</div>`;
+
+	consumer === null? consumerTools.innerHTML = "" : consumerTools.innerHTML = tools;
+
+}consumerTools()
+
 function inputKayConsumer(kayConsumer) {
 	let getKay = `<form name="getKayConsumer" class="getKayConsumer">
 		<div>Ввидите ваш ключ активации</div>
@@ -49,8 +66,7 @@ function postKayConsumer() {
 			if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
 			  localStorage.setItem("kayConsumer", xhr.response)
 			  content.innerHTML = "";
-			}
-		}
+			}		}
 
 		xhr.send(body)
 	}
@@ -101,6 +117,8 @@ function verificationAccount() {
 			kay = JSON.parse(xhr.response);
 			localStorage.setItem("consumer", xhr.response)
 			entryblock(consumer)
+			consumerTools()
+			console.log(kay)
 			if(!kay.kay) {
 				inputKayConsumer(kayConsumer)
 			}
