@@ -14,7 +14,7 @@ module.exports = [
 	 },
 	 "comapany": {
 	 	"comapanyName": "PM",
-	 	"BD": "",
+	 	"BD": "PMDB",
 	 }
 	}
 ];

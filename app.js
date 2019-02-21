@@ -5,17 +5,16 @@ const fs = require('fs')
 
 // мои модули
 const searchName = require ('./js/searchName');
-const deleteUser = require ('./js/deleteUser')
-const countPersonals = require('./js/main')
-const getPhotoUser = require('./js/getPhotoUser')
-const correctiveUser = require('./js/correctiveUser')
-const getInnerUserScript = require('./js/getInnerUserScript')
-const kayConsumer = require('./js/kayConsumer')
-const verificationAccount = require('./js/verificationAccount')
+const deleteUser = require ('./js/deleteUser');
+const countPersonals = require('./js/main');
+const getPhotoUser = require('./js/getPhotoUser');
+const correctiveUser = require('./js/correctiveUser');
+const getInnerUserScript = require('./js/getInnerUserScript');
+const kayConsumer = require('./js/kayConsumer');
+const verificationAccount = require('./js/verificationAccount');
 
 //Типа BD
-
-const consumers = require('./db/consumers/consumers')
+const consumers = require('./db/consumers/consumers');
 const personal = require('./db/personals');
 const archive = require('./db/archive');
 let avatar = function (namePhoto) {
@@ -60,8 +59,7 @@ app.get('/personalLIst.html', (req, res) => {
 
 // главная страница
 app.get('/main', (req, res) => {
-	res.sendStatus(200)
-	// res.send(personal);
+	res.sendStatus(200);
 })
 
 // html для регистрации

@@ -23,7 +23,7 @@ module.exports = function searchName (req, res, personal) {
 		if(!number) {
 			personal.push(user)
 			upload()
-			res.redirect('/personalLIst.html')
+			res.send('Создан новый сотрудник. ')
 		}
 
 		else{
