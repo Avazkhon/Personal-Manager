@@ -23,6 +23,7 @@ let avatar = function (namePhoto) {
 				}
 				return (__dirname+`/db/photo/${namePhoto}`)
 			}
+			
 const app = express();
 
 app.use(fileUpload());

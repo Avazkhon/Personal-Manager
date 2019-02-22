@@ -118,9 +118,13 @@ function verificationAccount() {
 			localStorage.setItem("consumer", xhr.response)
 			entryblock(consumer)
 			consumerTools()
-			console.log(kay)
+			console.log(xhr.response)
 			if(!kay.kay) {
 				inputKayConsumer(kayConsumer)
+			}
+			console.log(typeof(" "), typeof(kay.kay))
+			if(typeof(" ") === typeof(kay.kay)) {
+				localStorage.setItem("kayConsumer", kay.kay)
 			}
 		}
 		if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 400){

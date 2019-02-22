@@ -6,19 +6,21 @@ module.exports = function verificationAccount(req, res, consumers) {
 					if(item.user.email == req.body.email) {
 						if(item.kay.kaystatus) {
 						  resConsumer = item.user;
+						  resConsumer.kay = item.kay.kay;
+						  console.log(resConsumer)
 						  return true
 						}
-
-						resConsumer = item.user;
-						resConsumer.kay = item.kay.kayStatus;
-						console.log(resConsumer)
-						return true
+						if(!item.kay.kaystatus) {
+						  resConsumer = item.user;
+						  resConsumer.kay = item.kay.kay;
+						  console.log(resConsumer)
+						  return true
+						}
 					}
 				}
 			}
 		})
 
-		console.log(resConsumer)
 		if(consumer) {
 			res.status(200).send(resConsumer)
 			return
