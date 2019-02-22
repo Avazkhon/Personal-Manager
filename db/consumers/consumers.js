@@ -12,9 +12,9 @@ module.exports = [
 	  "kay": "t2QiWinVdjGgJ3BC",
  	 "kayStatus": false
 	 },
-	 "comapany": {
+	 "company": {
 	 	"comapanyName": "PM",
-	 	"BD": "PMDB",
+	 	"DB": "PMDB",
 	 }
 	}
 ];

@@ -40,19 +40,37 @@ app.get('/', (req, res) => {
 	res.sendFile(__dirname + '/public/main.html');
 });
 
-app.get('/form.html', (req, res) => {
+app.get('/form.html/:list', (req, res) => {
+	console.log(req.params.list)
 	res.sendFile(__dirname + '/htmlList/form.html');
 	res.status(200)
 })
 
 
-app.get('/reports.html', (req, res) => {
-	res.sendFile(__dirname + '/htmlList/reports.html');
-	res.status(200)
+app.get('/reports.html/:list', (req, res) => {
+	reports(req, res, consumers)
+	function reports(req, res, consumers) {
+		let reqKay = req.params.list;
+		let kayStatus = false;
+		consumers.map((consumer)=>{
+			if(consumer.kay.kay === reqKay) {
+			  console.log(consumer.company.DB)
+			  kayStatus = true;
+			  return
+			}
+			else kayStatus = false;
+		})
+
+		if(kayStatus) {
+		  res.sendFile(__dirname + '/htmlList/reports.html');
+	  	  res.status(200)
+		}
+	}
 })
 
 // Список сотрудников
-app.get('/personalLIst.html', (req, res) => {
+app.get('/personalLIst.html/:list', (req, res) => {
+	console.log(req.params.list)
 	res.sendFile(__dirname + '/htmlList/personalLIst.html');
 	res.status(200)
 	// res.send(personal);

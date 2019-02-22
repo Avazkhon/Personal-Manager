@@ -13,7 +13,7 @@ function innerUSer() {
 
 function formList() {
 	const xhr = new XMLHttpRequest();
-	const url = "http://localhost:2019/form.html";
+	const url = "http://localhost:2019/form.html"+"/"+ localStorage.getItem("kayConsumer");
 
 	xhr.open("GET", url, )
   	xhr.onreadystatechange =()=>{
@@ -26,7 +26,7 @@ function formList() {
 
 function reportsList() {
 	const xhr = new XMLHttpRequest();
-	const url = "http://localhost:2019/reports.html";
+	const url = "http://localhost:2019/reports.html"+"/"+ localStorage.getItem("kayConsumer");
 
 	xhr.open("GET", url, )
   	xhr.onreadystatechange =()=>{
@@ -39,7 +39,7 @@ function reportsList() {
 
 function personalLIst() {
 	const xhr = new XMLHttpRequest();
-	const url = "http://localhost:2019/personalLIst.html";
+	const url = "http://localhost:2019/personalLIst.html"+"/"+ localStorage.getItem("kayConsumer");
 
 	xhr.open("GET", url, )
   	xhr.onreadystatechange =()=>{
