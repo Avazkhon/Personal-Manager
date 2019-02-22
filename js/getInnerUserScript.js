@@ -8,7 +8,8 @@ module.exports = function getInnerUserScript(req, res, consumers) {
 		})
 		// вернуть истину если нашел
 		let newConsumers = consumers.some(getEmail=>{
-			if(getEmail.user.email == consumer[0].email){
+			console.log(getEmail.user.email == consumer[0].email || getEmail.user.nameCompany == consumer[0].nameCompany)
+			if(getEmail.user.email == consumer[0].email || getEmail.user.nameCompany == consumer[0].nameCompany){
 
 				return true
 			}
@@ -47,7 +48,6 @@ module.exports = function getInnerUserScript(req, res, consumers) {
 			for(let i = 0; i < 16; i++) {
 				randomkay += arr[Math.floor(arr.length * Math.random())];
 			}
-			console.log(randomkay.length)
 			if(randomkay.length == 16) {
 				return randomkay;
 			}
