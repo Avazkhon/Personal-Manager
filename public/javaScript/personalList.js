@@ -150,7 +150,7 @@ function education (index) {
 
 function contact(index) {
   return(
-      `<div class="contact">
+      `<div class="getContact">
          <h3>Контакты</h3>
         <div class="getCard" >
           <h5>Телефон</h5
