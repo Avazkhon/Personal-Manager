@@ -107,7 +107,7 @@ function getCanvas(personal) {
 // document.getElementById("countPersonal").onclick = 
 function countPersonal() {
 	const reports = document.getElementById("reports");
-	const url = "http://localhost:2019/countPersonals";
+	const url = "http://localhost:2019/countPersonals"+"/"+ localStorage.getItem("kayConsumer");
 	const xhr = new XMLHttpRequest();
 	xhr.open('GET', url, true)
 	xhr.onreadystatechange =()=>{

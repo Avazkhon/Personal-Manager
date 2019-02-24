@@ -7,7 +7,7 @@ const path = require('path')
 // мои модули
 const searchName = require ('./js/searchName');
 const deleteUser = require ('./js/deleteUser');
-const countPersonals = require('./js/main');
+const countPersonals = require('./js/countPersonals');
 const getPhotoUser = require('./js/getPhotoUser');
 const correctiveUser = require('./js/correctiveUser');
 const getInnerUserScript = require('./js/getInnerUserScript');
@@ -17,13 +17,13 @@ const getList = require("./js/getList")
 
 //Типа BD
 const consumers = require('./db/consumers/consumers');
-const personal = require('./db/personals');
-const archive = require('./db/archive');
+const personal = require('./db/PMDB/personals');
+const archive = require('./db/PMDB/archive');
 let avatar = function (namePhoto) {
 				if(namePhoto === undefined && namePhoto === "") {
-					return (__dirname+'/db/photo/images.jpg')
+					return (__dirname+'/db/PMDB/photo/images.jpg')
 				}
-				return (__dirname+`/db/photo/${namePhoto}`)
+				return (__dirname+`/db/PMDB/photo/${namePhoto}`)
 			}
 			
 const app = express();
@@ -94,8 +94,8 @@ app.get("/consumers", (req, res)=> {
 })
 
 // Количество сотрудников
-app.get('/countPersonals', (req, res)=>{
-	countPersonals(req, res, personal)
+app.get('/countPersonals/:key', (req, res)=>{
+	countPersonals(req, res, getBD(req.params.key, consumers ), dir)
 })
 
 // отправить аватарку
@@ -103,6 +103,7 @@ app.get('/avatar/:name' , (req, res)=>{
 	getPhotoUser(req, res, avatar(req.params.name))
 })
 
+// ввод ключа
 app.post("/kayConsumer", (req, res) =>{
 	kayConsumer(req, res, consumers)
 })
@@ -136,3 +137,11 @@ app.post('/deliteUser', (req, res)=> {
 app.listen(port, () => {
 	console.log(`app starting. localhost:${port}`);
 });
+
+function getBD (key, consumers) {
+	return consumers.map((consumer)=>{
+		if(consumer.kay.kay == key) {
+			return consumer.company.DB;
+		}
+	})
+}
