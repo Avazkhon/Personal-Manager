@@ -4,7 +4,7 @@ let idUser;
 // вывод перонала
 function listPersonal() {
   $.get(
-    "http://localhost:2019/personal",
+    "http://localhost:2019/personal"+"/"+ localStorage.getItem("kayConsumer"),
     (personal)=> {
       personals = personal;
 
@@ -173,7 +173,7 @@ function userSearch() {
   let value = document.getElementById("userSearchText").value
   let search= [];
   $.get(
-      "http://localhost:2019/personal",
+      "http://localhost:2019/personal"+"/"+ localStorage.getItem("kayConsumer"),
       (personal)=> {
         personals = personal;
 

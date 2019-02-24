@@ -3,7 +3,7 @@ module.exports = function countPersonals(req, res, getBD, dir) {
 	let paramsKey = req.params.key;
 
 	function getPosition() {
-			getArr(personal)x
+		getArr(personal)
 	}getPosition()
 
 	function getArr(personal){

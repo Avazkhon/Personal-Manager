@@ -3,7 +3,7 @@
 function reports () {
 	let reports = document.getElementById("reports");
 	document.getElementById("wagaFunction").onclick = function canvas () {
-		const url = "http://localhost:2019/personal";
+		const url = "http://localhost:2019/personal"+"/"+ localStorage.getItem("kayConsumer");
 		const xhr = new XMLHttpRequest();
 		let wage = 0;
 		let personal = [];

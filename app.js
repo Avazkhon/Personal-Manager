@@ -13,7 +13,8 @@ const correctiveUser = require('./js/correctiveUser');
 const getInnerUserScript = require('./js/getInnerUserScript');
 const kayConsumer = require('./js/kayConsumer');
 const verificationAccount = require('./js/verificationAccount');
-const getList = require("./js/getList")
+const getList = require("./js/getList");
+const getPersonal = require('./js/getPersonal')
 
 //Типа BD
 const consumers = require('./db/consumers/consumers');
@@ -74,8 +75,8 @@ app.get('/entryUser', (req, res) =>{
 })
 
 // Список сотрудников JSON
-app.get('/personal', (req, res)=> {
-	res.send(personal);
+app.get('/personal/:key', (req, res)=> {
+	getPersonal(req, res, getBD(req.params.key, consumers ), dir)
 })
 
 // регистрация пользователя res.script
