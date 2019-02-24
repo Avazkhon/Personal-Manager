@@ -2,6 +2,7 @@ const express = require ('express');
 const bodyParser = require('body-parser');
 const fileUpload = require('express-fileupload');
 const fs = require('fs')
+const path = require('path')
 
 // мои модули
 const searchName = require ('./js/searchName');
@@ -12,6 +13,7 @@ const correctiveUser = require('./js/correctiveUser');
 const getInnerUserScript = require('./js/getInnerUserScript');
 const kayConsumer = require('./js/kayConsumer');
 const verificationAccount = require('./js/verificationAccount');
+const getList = require("./js/getList")
 
 //Типа BD
 const consumers = require('./db/consumers/consumers');
@@ -32,6 +34,7 @@ app.use(bodyParser.json({extended: true}))
 app.use(bodyParser.urlencoded({extended: true}));
 
 const port = 2019;
+const dir = __dirname;
 
 app.use(express.static('public'));
 
@@ -40,40 +43,18 @@ app.get('/', (req, res) => {
 	res.sendFile(__dirname + '/public/main.html');
 });
 
-app.get('/form.html/:list', (req, res) => {
-	console.log(req.params.list)
-	res.sendFile(__dirname + '/htmlList/form.html');
-	res.status(200)
+app.get('/form.html/:list/:key', (req, res) => {
+	getList(req, res, consumers, dir)
 })
 
 
-app.get('/reports.html/:list', (req, res) => {
-	reports(req, res, consumers)
-	function reports(req, res, consumers) {
-		let reqKay = req.params.list;
-		let kayStatus = false;
-		consumers.map((consumer)=>{
-			if(consumer.kay.kay === reqKay) {
-			  console.log(consumer.company.DB)
-			  kayStatus = true;
-			  return
-			}
-			else kayStatus = false;
-		})
-
-		if(kayStatus) {
-		  res.sendFile(__dirname + '/htmlList/reports.html');
-	  	  res.status(200)
-		}
-	}
+app.get('/reports.html/:list/:key', (req, res) => {
+	getList(req, res, consumers, dir)
 })
 
 // Список сотрудников
-app.get('/personalLIst.html/:list', (req, res) => {
-	console.log(req.params.list)
-	res.sendFile(__dirname + '/htmlList/personalLIst.html');
-	res.status(200)
-	// res.send(personal);
+app.get('/personalLIst.html/:list/:key', (req, res) => {
+	getList(req, res, consumers, dir)
 })
 
 // главная страница
