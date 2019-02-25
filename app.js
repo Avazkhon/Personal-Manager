@@ -130,9 +130,9 @@ app.post('/correctiveUser', (req, res)=>{
 	correctiveUser(req, res, personal);
 })
 
-// удаления сотрудника и переменения в архив
-app.post('/deliteUser', (req, res)=> {
-	deleteUser(req, res, archive, personal)
+// удаления сотрудника и перемещения в архив
+app.post('/deliteUser/:key', (req, res)=> {
+	deleteUser(req, res, archive, getBD(req.params.key, consumers ), dir)
 })
 
 app.listen(port, () => {

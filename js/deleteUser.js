@@ -1,6 +1,7 @@
 const fs = require('fs')
 
-module.exports = function deliteUser (req, res, archive, personal) {
+module.exports = function deliteUser (req, res, archive, getBD, dir) {
+	const personal = require(dir +`/db/${getBD}/personals`);
 	let id = Number(req.body.id);
 	function deletePerson () {
 		let userId;
@@ -20,7 +21,7 @@ module.exports = function deliteUser (req, res, archive, personal) {
 	}deletePerson()
 
 	function deletePhoto(name) {
-		let pathPhoto = `./db/photo/${name}`;
+		let pathPhoto = `./db/${getBD}/photo/${name}`;
 		fs.unlink(pathPhoto, (err)=>{
 			if(err) {
 				console.log(err)

@@ -197,10 +197,10 @@ function userSearch() {
 // удаления сотрудника
 function deleteUser (id) {
   let xhr = new XMLHttpRequest();
-
+  let url = 'http://localhost:2019/deliteUser'+"/"+ localStorage.getItem("kayConsumer"); 
   var body = 'id=' + encodeURIComponent(id);
 
-  xhr.open("POST", 'http://localhost:2019/deliteUser', true);
+  xhr.open("POST", url, true);
   xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
   xhr.onreadystatechange = ()=> {
