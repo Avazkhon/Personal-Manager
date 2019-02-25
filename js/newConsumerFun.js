@@ -9,7 +9,6 @@ module.exports = function newConsumerFun(req, res, consumers, dir) {
 	})
 	// вернуть истину если нашел
 	let newConsumers = consumers.some(getEmail=>{
-		console.log(getEmail.user.email == consumer[0].email || getEmail.user.nameCompany == consumer[0].nameCompany)
 		if(getEmail.user.email == consumer[0].email || getEmail.user.nameCompany == consumer[0].nameCompany){
 
 			return true
@@ -75,8 +74,6 @@ module.exports = function newConsumerFun(req, res, consumers, dir) {
 			})
 
 		})
-		console.log(DB)
 		return DB
 	}
-	console.log(consumers)
 }

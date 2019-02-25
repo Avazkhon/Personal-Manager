@@ -34,7 +34,6 @@ module.exports = function searchName (req, res, getBD, dir) {
 		let name = req.files.foo.name;
 		let foo = req.files.foo;
 		let pathPhoto = `./db/${getBD}/photo/${name}`;
-		console.log(name, pathPhoto)
 	  	if (Object.keys(req.files).length == 0) {
 		    res.status(400).send('Нет Фото!');
 		  }

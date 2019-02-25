@@ -1,4 +1,6 @@
-module.exports = function correctiveUser(req, res, users) {
+module.exports = function correctiveUser(req, res, getBD, dir) {
+	const users = require(dir +`/db/${getBD}/personals`);
+
 	let reqUser = req.body;
 	for(kay in users) {
 		if(users[kay].id === reqUser.id) {

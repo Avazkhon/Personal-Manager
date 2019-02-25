@@ -256,7 +256,7 @@ function addValueServer(elem) {
   let value = elem.firstChild.value;
   let item = elem.title;
   let xhr = new XMLHttpRequest;
-  let url = "http://localhost:2019/correctiveUser"
+  let url = "http://localhost:2019/correctiveUser"+"/"+ localStorage.getItem("kayConsumer");
   let body = JSON.stringify({ 
     id: idUser,
     user: {

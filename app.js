@@ -125,9 +125,9 @@ app.post('/form.html/:key',(req, res) => {
 });
 
 // изменения свойств сотрудника
-// app.post('/correctiveUser', (req, res)=>{
-// 	correctiveUser(req, res, personal);
-// })
+app.post('/correctiveUser/:key', (req, res)=>{
+	correctiveUser(req, res, getBD(req.params.key, consumers ), dir);
+})
 
 // удаления сотрудника и перемещения в архив
 app.post('/deliteUser/:key', (req, res)=> {
@@ -141,7 +141,6 @@ app.listen(port, () => {
 function getBD (key, consumers) {
 	let nameDB
 	consumers.map((consumer)=>{
-		console.log(consumer.kay.kay, key, consumer.company.DB)
 		if(consumer.kay.kay == key) {
 			return nameDB = consumer.company.DB;
 		}
