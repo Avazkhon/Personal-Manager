@@ -43,12 +43,12 @@ app.use(express.static('public'));
 app.get('/', (req, res) => {
 	res.sendFile(__dirname + '/public/main.html');
 });
-
+// форма заполнения нового сотрудника
 app.get('/form.html/:list/:key', (req, res) => {
 	getList(req, res, consumers, dir)
 })
 
-
+// отчеты
 app.get('/reports.html/:list/:key', (req, res) => {
 	getList(req, res, consumers, dir)
 })
@@ -120,8 +120,8 @@ app.post("/innerUserScript", (req, res)=>{
 })
 
 // Новый сотрудник
-app.post('/form.html',(req, res) => {
-	searchName(req, res, personal)
+app.post('/form.html/:key',(req, res) => {
+	searchName(req, res, getBD(req.params.key, consumers ), dir)
 
 });
 

@@ -1,3 +1,23 @@
+
+function newUserFun () {
+	let xhr = new XMLHttpRequest;
+	let url = 'http://localhost:2019/form.html'+"/"+ localStorage.getItem("kayConsumer")
+	let newUser = document.newUser;
+	let photo = newUser.foo.files[0];
+	let formData = new FormData(newUser);
+
+		xhr.open("POST", url, )
+
+		xhr.onreadystatechange = ()=>{
+		if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 201){
+				document.getElementById("content").innerHTML = xhr.response;
+				console.log(xhr.status)
+			}
+		}
+		xhr.send( formData )
+}
+
+
 // массив персонала
 const personal = []
 //объект для добавления методов сотрудника

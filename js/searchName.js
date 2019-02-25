@@ -1,5 +1,6 @@
 
-module.exports = function searchName (req, res, personal) {
+module.exports = function searchName (req, res, getBD, dir) {
+	const personal = require(dir +`/db/${getBD}/personals`);
 	let namePhoto = req.files.foo.name;
 	let user = {
 		id: Math.floor(Math.random() * (9999, 9999999)) + 1,
@@ -23,11 +24,8 @@ module.exports = function searchName (req, res, personal) {
 		if(!number) {
 			personal.push(user)
 			upload()
+			res.status(201)
 			res.send('Создан новый сотрудник. ')
-		}
-
-		else{
-			res.sendStatus(404)
 		}
 		
 	}newUser(personal, passNumber);
@@ -35,11 +33,10 @@ module.exports = function searchName (req, res, personal) {
 	function upload() {
 		let name = req.files.foo.name;
 		let foo = req.files.foo;
-		let pathPhoto = `./db/photo/${name}`;
+		let pathPhoto = `./db/${getBD}/photo/${name}`;
 		console.log(name, pathPhoto)
 	  	if (Object.keys(req.files).length == 0) {
 		    res.status(400).send('Нет Фото!');
-		    return;
 		  }
 
 	  	foo.mv(pathPhoto, function(err) {
