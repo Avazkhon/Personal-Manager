@@ -55,7 +55,7 @@ function getCard(id){
   $("#user").html(
     `<div class="card">
       <div class="getCardIMG" >
-        <img src="/avatar/${personals[index].photo[0]}" alt="фото"  />
+        <img src="/avatar/${personals[index].photo[0]}/${localStorage.getItem("kayConsumer")}" alt="фото"  />
         <div class="userTools">
            <input type="button" id="deleteUser" class="btn" value="Удалить" onclick="deleteUser(${personals[index].id})">
           <div id="correct" >

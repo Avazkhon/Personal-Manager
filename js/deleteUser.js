@@ -1,7 +1,8 @@
 const fs = require('fs')
 
-module.exports = function deliteUser (req, res, archive, getBD, dir) {
+module.exports = function deliteUser (req, res, getBD, dir) {
 	const personal = require(dir +`/db/${getBD}/personals`);
+	const archive = require(dir +`/db/${getBD}/archive`);
 	let id = Number(req.body.id);
 	function deletePerson () {
 		let userId;

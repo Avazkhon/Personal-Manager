@@ -10,7 +10,7 @@ const deleteUser = require ('./js/deleteUser');
 const countPersonals = require('./js/countPersonals');
 const getPhotoUser = require('./js/getPhotoUser');
 const correctiveUser = require('./js/correctiveUser');
-const getInnerUserScript = require('./js/getInnerUserScript');
+const newConsumerFun = require('./js/newConsumerFun');
 const kayConsumer = require('./js/kayConsumer');
 const verificationAccount = require('./js/verificationAccount');
 const getList = require("./js/getList");
@@ -18,14 +18,11 @@ const getPersonal = require('./js/getPersonal')
 
 //Типа BD
 const consumers = require('./db/consumers/consumers');
-const personal = require('./db/PMDB/personals');
-const archive = require('./db/PMDB/archive');
-let avatar = function (namePhoto) {
-				if(namePhoto === undefined && namePhoto === "") {
-					return (__dirname+'/db/PMDB/photo/images.jpg')
-				}
-				return (__dirname+`/db/PMDB/photo/${namePhoto}`)
-			}
+// const personal = require('./db/PMDB/personals');
+// const archive = require('./db/PMDB/archive');
+let avatar = function (namePhoto, getBD) {
+	return (__dirname+`/db/${getBD}/photo/${namePhoto}`)
+}
 			
 const app = express();
 
@@ -100,8 +97,10 @@ app.get('/countPersonals/:key', (req, res)=>{
 })
 
 // отправить аватарку
-app.get('/avatar/:name' , (req, res)=>{
-	getPhotoUser(req, res, avatar(req.params.name))
+app.get('/avatar/:name/:key' , (req, res)=>{
+	let nameDB = getBD(req.params.key, consumers );
+	let avatarName = avatar(req.params.name, nameDB)
+	getPhotoUser(req, res, avatarName)
 })
 
 // ввод ключа
@@ -116,7 +115,7 @@ app.post("/verificationAccount", (req, res) =>{
 
 // прием нового ползователя JSON
 app.post("/innerUserScript", (req, res)=>{
-	getInnerUserScript(req, res, consumers)
+	newConsumerFun(req, res, consumers, dir)
 })
 
 // Новый сотрудник
@@ -126,13 +125,13 @@ app.post('/form.html/:key',(req, res) => {
 });
 
 // изменения свойств сотрудника
-app.post('/correctiveUser', (req, res)=>{
-	correctiveUser(req, res, personal);
-})
+// app.post('/correctiveUser', (req, res)=>{
+// 	correctiveUser(req, res, personal);
+// })
 
 // удаления сотрудника и перемещения в архив
 app.post('/deliteUser/:key', (req, res)=> {
-	deleteUser(req, res, archive, getBD(req.params.key, consumers ), dir)
+	deleteUser(req, res, getBD(req.params.key, consumers ), dir)
 })
 
 app.listen(port, () => {
@@ -140,9 +139,12 @@ app.listen(port, () => {
 });
 
 function getBD (key, consumers) {
-	return consumers.map((consumer)=>{
+	let nameDB
+	consumers.map((consumer)=>{
+		console.log(consumer.kay.kay, key, consumer.company.DB)
 		if(consumer.kay.kay == key) {
-			return consumer.company.DB;
+			return nameDB = consumer.company.DB;
 		}
 	})
+	return nameDB
 }
