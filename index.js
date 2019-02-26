@@ -1,8 +1,9 @@
 const express = require ('express');
 const bodyParser = require('body-parser');
 const fileUpload = require('express-fileupload');
-const fs = require('fs')
-const path = require('path')
+const MongoClient = require('mongodb').MongoClient;
+// const fs = require('fs')
+// const path = require('path')
 
 // мои модули
 const searchName = require ('./js/searchName');
@@ -15,11 +16,11 @@ const kayConsumer = require('./js/kayConsumer');
 const verificationAccount = require('./js/verificationAccount');
 const getList = require("./js/getList");
 const getPersonal = require('./js/getPersonal')
+const urlMongo = require('./urlMongo')
+let db = require("./db/db")
 
 //Типа BD
 const consumers = require('./db/consumers/consumers');
-// const personal = require('./db/PMDB/personals');
-// const archive = require('./db/PMDB/archive');
 let avatar = function (namePhoto, getBD) {
 	return (__dirname+`/db/${getBD}/photo/${namePhoto}`)
 }
@@ -134,10 +135,6 @@ app.post('/deliteUser/:key', (req, res)=> {
 	deleteUser(req, res, getBD(req.params.key, consumers ), dir)
 })
 
-app.listen(port, () => {
-	console.log(`app starting. localhost:${port}`);
-});
-
 function getBD (key, consumers) {
 	let nameDB
 	consumers.map((consumer)=>{
@@ -147,3 +144,13 @@ function getBD (key, consumers) {
 	})
 	return nameDB
 }
+
+db.connect(urlMongo, function(err) {
+	if(err) {
+		return console.log(err)
+	}
+	app.listen(port, () => {
+		console.log(`app starting. localhost:${port}`);
+	});
+
+});
