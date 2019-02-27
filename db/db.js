@@ -9,7 +9,7 @@ exports.connect = function (url, done){
 		return done();
 	}
 
-	MongoClient.connect(url, {useNewUrlParser: true}, function (err, db){
+	MongoClient.connect(url, function (err, db){
 		if(err) {
 		  return done(err)
 		}

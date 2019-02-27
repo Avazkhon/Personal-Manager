@@ -2,8 +2,7 @@ const express = require ('express');
 const bodyParser = require('body-parser');
 const fileUpload = require('express-fileupload');
 const MongoClient = require('mongodb').MongoClient;
-// const fs = require('fs')
-// const path = require('path')
+const ObjectID = require('mongodb').ObjectID;
 
 // мои модули
 const searchName = require ('./js/searchName');
@@ -15,9 +14,10 @@ const newConsumerFun = require('./js/newConsumerFun');
 const kayConsumer = require('./js/kayConsumer');
 const verificationAccount = require('./js/verificationAccount');
 const getList = require("./js/getList");
-const getPersonal = require('./js/getPersonal')
-const urlMongo = require('./urlMongo')
-let db = require("./db/db")
+const getPersonal = require('./js/getPersonal');
+const urlMongo = require('./urlMongo');
+const ControllConsumers = require("./controls/consumers");
+let db = require("./db/db");
 
 //Типа BD
 const consumers = require('./db/consumers/consumers');
@@ -88,9 +88,7 @@ app.get("/entryUserScript", (req, res) =>{
 })
 
 // список пользователей
-app.get("/consumers", (req, res)=> {
-	res.send(consumers)
-})
+app.get("/consumers", ControllConsumers.all)
 
 // Количество сотрудников
 app.get('/countPersonals/:key', (req, res)=>{
@@ -115,9 +113,7 @@ app.post("/verificationAccount", (req, res) =>{
 })
 
 // прием нового ползователя JSON
-app.post("/innerUserScript", (req, res)=>{
-	newConsumerFun(req, res, consumers, dir)
-})
+app.post("/innerUserScript", ControllConsumers.create)
 
 // Новый сотрудник
 app.post('/form.html/:key',(req, res) => {
