@@ -23,3 +23,13 @@ exports.create = function (req, res) {
     res.send(doc)
   });
 };
+
+exports.delete = function (req, res) {
+  newConsumerFun.delete(req.params.id, (err, result)=>{
+    if(err) {
+      console.log(err)
+      return res.sendStatus(500);
+    }
+    res.sendStatus(200)
+  });
+};

@@ -115,6 +115,10 @@ app.post("/verificationAccount", (req, res) =>{
 // прием нового ползователя JSON
 app.post("/innerUserScript", ControllConsumers.create)
 
+// прием нового ползователя JSON
+app.delete("/innerUserScript/:id", ControllConsumers.delete)
+
+
 // Новый сотрудник
 app.post('/form.html/:key',(req, res) => {
 	searchName(req, res, getBD(req.params.key, consumers ), dir)

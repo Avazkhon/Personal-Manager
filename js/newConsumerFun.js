@@ -17,6 +17,15 @@ exports.create = function (consumer, colB) {
   })
 }
 
+exports.delete = function (id, colB) {
+  db.get().collection("consumers").deleteOne({_id: ObjectID(id)}, (err, result)=>{
+    if(err) {
+      console.log(err)
+    }
+    colB(err, result)
+  })
+}
+
 
 // создания нового пользователя
 // module.exports = function newConsumerFun(req, res, consumers, dir) {
