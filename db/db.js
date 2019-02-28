@@ -21,3 +21,8 @@ exports.connect = function (url, done){
 exports.get = function () {
 	return state.db;
 };
+
+exports.dir = function () {
+	let dir = __dirname;
+	return dir;
+};

@@ -5,9 +5,7 @@ function innerUserScript() {
 	let password = document.innerUser.password.value.length >= 6 ? nimPassword(document.innerUser.password.value) : nimPassword(document.innerUser.password.value);
 	let email = document.innerUser.email.value !== "" ? dontUndefined(document.innerUser.email.value, "email") : dontUndefined(document.innerUser.email.value, "email") ;
 
-	let obj = [
-		{nameCompany , firstName, lastName, password, email}
-	]
+	let obj = {nameCompany , firstName, lastName, password, email}
 	// роверка на длинну пароля
 	function nimPassword(ifValue) {
 		if (ifValue.length <= 5) {
