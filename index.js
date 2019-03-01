@@ -7,10 +7,9 @@ const ObjectID = require('mongodb').ObjectID;
 // мои модули
 const searchName = require ('./js/searchName');
 const deleteUser = require ('./js/deleteUser');
-const countPersonals = require('./js/countPersonals');
 const getPhotoUser = require('./js/getPhotoUser');
 const correctiveUser = require('./js/correctiveUser');
-const newConsumerFun = require('./js/newConsumerFun');
+const Consumers = require('./js/Consumers');
 const kayConsumer = require('./js/kayConsumer');
 const verificationAccount = require('./js/verificationAccount');
 const getList = require("./js/getList");
@@ -24,7 +23,7 @@ const consumers = require('./db/consumers/consumers');
 let avatar = function (namePhoto, getBD) {
 	return (__dirname+`/db/${getBD}/photo/${namePhoto}`)
 }
-			
+
 const app = express();
 
 app.use(fileUpload());
@@ -91,10 +90,7 @@ app.get("/entryUserScript", (req, res) =>{
 app.get("/consumers", ControllConsumers.all)
 
 // Количество сотрудников
-app.get('/countPersonals/:key', (req, res)=>{
-	countPersonals(req, res, getBD(req.params.key, consumers ), dir)
-})
-
+app.get('/countPersonals/:key', ControllConsumers.countUser)
 // отправить аватарку
 app.get('/avatar/:name/:key' , (req, res)=>{
 	let nameDB = getBD(req.params.key, consumers );
@@ -112,10 +108,10 @@ app.post("/verificationAccount", (req, res) =>{
 	verificationAccount(req, res, consumers)
 })
 
-// прием нового ползователя JSON
+// Прием нового ползователя JSON
 app.post("/innerUserScript", ControllConsumers.create)
 
-// прием нового ползователя JSON
+// Удаления нового ползователя JSON
 app.delete("/innerUserScript/:id", ControllConsumers.delete)
 
 

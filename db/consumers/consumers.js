@@ -9,7 +9,7 @@ module.exports = [
 	 },
 	 "photo": ["images.jpg"],
 	 "kay": {
-	  "kay": "t2QiWinVdjGgJ3BC",
+	  "kay": "3km0JBUluVkkvMRT",
  	 "kayStatus": false
 	 },
 	 "company": {

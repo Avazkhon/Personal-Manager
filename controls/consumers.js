@@ -1,7 +1,7 @@
-const newConsumerFun = require('../js/newConsumerFun')
+const Consumers = require('../js/Consumers')
 
 exports.all = function (req, res) {
-  newConsumerFun.all((err, doc)=>{
+  Consumers.all((err, doc)=>{
   	if(err) {
   	  console.log(err)
   	}
@@ -13,7 +13,7 @@ exports.all = function (req, res) {
 exports.create = function (req, res) {
   let consumers = req.body;
   console.log(consumers)
-  newConsumerFun.create(consumers, (err, result)=>{
+  Consumers.create(consumers, (err, result)=>{
     if(err) {
       console.log(err)
       return res.sendStatus(500);
@@ -26,7 +26,7 @@ exports.create = function (req, res) {
 };
 
 exports.delete = function (req, res) {
-  newConsumerFun.delete(req.params.id, (err, result)=>{
+  Consumers.delete(req.params.id, (err, result)=>{
     if(err) {
       console.log(err)
       return res.sendStatus(500);
@@ -34,3 +34,17 @@ exports.delete = function (req, res) {
     res.sendStatus(200)
   });
 };
+
+exports.countUser = function (req, res) {
+  let key = req.params.key
+   Consumers.countUser((err, doc)=>{
+    if(err) {
+      console.log(err)
+    }
+    if(doc === 400 || doc === 418) {
+      res.sendStatus(doc)
+    }
+    res.send(doc)
+  },
+  req.params.key);
+} 
