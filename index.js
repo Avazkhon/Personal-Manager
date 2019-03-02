@@ -9,13 +9,13 @@ const searchName = require ('./js/searchName');
 const deleteUser = require ('./js/deleteUser');
 const getPhotoUser = require('./js/getPhotoUser');
 const correctiveUser = require('./js/correctiveUser');
-const Consumers = require('./js/Consumers');
 const kayConsumer = require('./js/kayConsumer');
 const verificationAccount = require('./js/verificationAccount');
 const getList = require("./js/getList");
-const getPersonal = require('./js/getPersonal');
 const urlMongo = require('./urlMongo');
+
 const ControllConsumers = require("./controls/consumers");
+const Users = require("./controls/Users");
 let db = require("./db/db");
 
 //Типа BD
@@ -72,9 +72,7 @@ app.get('/entryUser', (req, res) =>{
 })
 
 // Список сотрудников JSON
-app.get('/personal/:key', (req, res)=> {
-	getPersonal(req, res, getBD(req.params.key, consumers ), dir)
-})
+app.get('/personal/:key', Users.getUsers)
 
 // регистрация пользователя res.script
 app.get("/innerUserScript", (req, res)=>{
@@ -90,7 +88,8 @@ app.get("/entryUserScript", (req, res) =>{
 app.get("/consumers", ControllConsumers.all)
 
 // Количество сотрудников
-app.get('/countPersonals/:key', ControllConsumers.countUser)
+app.get('/countPersonals/:key', Users.countUser)
+
 // отправить аватарку
 app.get('/avatar/:name/:key' , (req, res)=>{
 	let nameDB = getBD(req.params.key, consumers );
@@ -116,10 +115,7 @@ app.delete("/innerUserScript/:id", ControllConsumers.delete)
 
 
 // Новый сотрудник
-app.post('/form.html/:key',(req, res) => {
-	searchName(req, res, getBD(req.params.key, consumers ), dir)
-
-});
+app.post('/form.html/:key', Users.create)
 
 // изменения свойств сотрудника
 app.post('/correctiveUser/:key', (req, res)=>{

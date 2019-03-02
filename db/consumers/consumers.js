@@ -14,7 +14,7 @@ module.exports = [
 	 },
 	 "company": {
 	 	"comapanyName": "PM",
-	 	"DB": "PMDB",
+	 	"DB": "DBPM",
 	 }
 	}
 ];

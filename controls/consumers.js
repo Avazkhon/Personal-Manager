@@ -34,17 +34,3 @@ exports.delete = function (req, res) {
     res.sendStatus(200)
   });
 };
-
-exports.countUser = function (req, res) {
-  let key = req.params.key
-   Consumers.countUser((err, doc)=>{
-    if(err) {
-      console.log(err)
-    }
-    if(doc === 400 || doc === 418) {
-      res.sendStatus(doc)
-    }
-    res.send(doc)
-  },
-  req.params.key);
-} 

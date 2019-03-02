@@ -67,7 +67,7 @@ exports.create = function (consumer, colB) {
 }
 
 function newDB (newNameCompany) {
-   let DB = newNameCompany + "DBPhto";
+   let DB = "DB" + newNameCompany;
    fs.mkdir(db.dir()+"/"+DB, (err) => {
      if(err) {
        console.log(err);
@@ -98,25 +98,5 @@ exports.delete = function (id, colB) {
       return
     }
     colB(err, result)
-  })
-}
-
-
-exports.countUser = function (colB, key) {
-  let getUser = ()=> {db.get().collection("user").find().toArray((err, doc)=>{
-    colB(err, [{"count" :doc.length}])
-  })}
-
-  db.get().collection("consumers").find().toArray((err, doc)=>{
-    if(doc.length === 0) {
-      colB(err, 418)
-    }
-    doc.some((user)=>{
-      if(user.kay.kay == key) {
-        getUser()
-        return 
-      }
-      else colB(err, 400)
-    })
   })
 }

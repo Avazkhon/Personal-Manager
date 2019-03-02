@@ -11,8 +11,10 @@ function reports () {
 		xhr.onreadystatechange =()=>{
 			if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
 				personal = JSON.parse(xhr.response);
-				for(let i=0; i<personal.length; i++) {
+				if(personal.length > 0 ) {
+				  for(let i=0; i<personal.length; i++) {
 					wage += JSON.parse(personal[i].user.wage);
+				 }
 				}
 			}
 			reports.innerHTML = `<div class="report" >
@@ -48,7 +50,7 @@ function getCanvas(personal) {
 	// получить значения для графика
 	y = Math.floor(wage /personal.length /1000); // ЗП / кол- персонала / масштаб
 	// Вывести среднюю. ЗП
-	document.getElementById('h3WageMid').innerHTML = `Средняя ЗП: ${y * 1000}`; 
+	document.getElementById('h3WageMid').innerHTML = `Средняя ЗП: ${personal.length === 0 ? 0 :  y * 1000}`; 
 	ctx.moveTo(0, 150);
 	function line(x){
 		ctx.lineTo(x, y);
